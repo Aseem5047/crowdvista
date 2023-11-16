@@ -1,7 +1,5 @@
 # crowdvista
 
-![image](https://github.com/Aseem5047/crowdvista/assets/80787027/110b1bf2-fa0f-490f-aa08-346950e01481)
-
 CrowdVista is a dynamic MERN stack application, built on React Vite, that serves as a feature-rich crowdfunding platform, enabling users to seamlessly create and edit profiles and projects, fund projects through integrated Stripe payment gateway, explore and search for people and projects based on tags and usernames, while offering a plethora of additional functionalities for an enhanced user experience.
 
 ![image](https://github.com/Aseem5047/crowdvista/assets/80787027/d0318562-1f43-408a-a965-f673cd443736)
