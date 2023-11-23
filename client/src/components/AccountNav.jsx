@@ -32,8 +32,8 @@ const AccountNav = ({ subpage, id }) => {
 				<Link
 					to={`/user/profile/${id}/purchases`}
 					className={`${
-						subpage === "bookings"
-							? "bg-primary text-white hover:scale-125"
+						subpage === "purchases"
+							? "bg-primary text-white hover:scale-110"
 							: "bg-gray-100 hover:bg-primary hover:text-white"
 					} py-2 px-6 rounded-2xl 
                 font-medium flex gap-2 items-cecnter justify-center`}
@@ -57,8 +57,8 @@ const AccountNav = ({ subpage, id }) => {
 				<Link
 					to={`/user/profile/${id}/projects`}
 					className={`${
-						subpage === "places"
-							? "bg-primary text-white hover:scale-125"
+						subpage === "projects"
+							? "bg-primary text-white hover:scale-110"
 							: "bg-gray-100 hover:bg-primary hover:text-white"
 					} py-2 px-6 rounded-2xl  
                 font-medium flex gap-2 items-cecnter justify-center`}

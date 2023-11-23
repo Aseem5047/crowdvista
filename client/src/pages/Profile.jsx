@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { getUser } from "../lib/authSlice";
 import axios from "axios";
 import AccountNav from "../components/AccountNav";
-import AboutUser from "../components/AboutUser";
+// import AboutUser from "../components/AboutUser";
 import Projects from "../pages/Projects";
 import Purchases from "../pages/Purchases";
 import OtherUserProfile from "../components/OtherUserProfile";
@@ -30,7 +30,7 @@ const Profile = () => {
 				});
 	}, [id]);
 
-	// console.log(userProfile);
+	console.log(subpage);
 	return (
 		<>
 			{user && user?._id === id ? (
