@@ -1,7 +1,7 @@
 const ProjectModel = require('../models/ProjectModel');
 const UserModel = require('../models/UserModel');
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { default: mongoose } = require('mongoose');
 const { decode } = jwt;
