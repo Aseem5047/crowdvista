@@ -72,8 +72,6 @@ app.post('/upload', photosMiddleware.array('photos', 15), (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
-
-
 )
 
 // upload the profile image via local upload funcitonality
