@@ -31,7 +31,7 @@ app.use(cors({
 dotenv.config();
 const port = process.env.PORT
 
-app.use('/', (req, res) => { res.json("Hi I am Server talking") })
+app.get('/', (req, res) => { res.json("Hi I am Server talking") })
 
 // middleware
 
@@ -53,19 +53,28 @@ app.post('/upload/viaLink', async (req, res) => {
 // upload the image via local upload funcitonality
 
 app.post('/upload', photosMiddleware.array('photos', 15), (req, res) => {
-    const uploadedFiles = []
-    for (let i = 0; i < req.files.length; i++) {
-        const { path, originalname } = req.files[i]
-        // console.log(path, originalname);
-        // uploads\08e34fca4f822d4ded76db133be65c9e Patterns-4K-Ultra-HD-Wallpaper-3840x2160.jpg
-        const parts = originalname.split('.')
-        const ext = parts[parts.length - 1]
-        const newPath = path + '.' + ext
-        fs.renameSync(path, newPath)
-        uploadedFiles.push(newPath.replace('uploads\\', ''))
+    try {
+        const uploadedFiles = []
+        for (let i = 0; i < req.files.length; i++) {
+            const { path, originalname } = req.files[i]
+            // console.log(path, originalname);
+            // uploads\08e34fca4f822d4ded76db133be65c9e Patterns-4K-Ultra-HD-Wallpaper-3840x2160.jpg
+            const parts = originalname.split('.')
+            const ext = parts[parts.length - 1]
+            const newPath = path + '.' + ext
+            fs.renameSync(path, newPath)
+            uploadedFiles.push(newPath.replace('uploads\\', ''))
+        }
+        res.json(uploadedFiles)
     }
-    res.json(uploadedFiles)
-})
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+
+)
 
 // upload the profile image via local upload funcitonality
 
