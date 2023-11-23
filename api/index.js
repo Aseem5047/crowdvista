@@ -31,7 +31,7 @@ app.use(cors({
 dotenv.config();
 const port = process.env.PORT
 
-app.get('/', (req, res) => { res.json("Hi I am Server talking") })
+app.use('/', (req, res) => { res.json("Hi I am Server talking") })
 
 // middleware
 
