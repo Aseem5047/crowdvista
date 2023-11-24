@@ -197,8 +197,10 @@ const Post = ({
 									className="h-8 w-8 rounded-full object-cover hover:scale-125"
 									key={id}
 									src={
-										person && person !== undefined
-											? `${baseUrl}/uploads/${person}`
+										person && person !== "undefined"
+											? person.includes("https://storage.googleapis.com")
+												? `${person}`
+												: `${baseUrl}/uploads/${person}`
 											: `/users/${randomImage}`
 									}
 								/>

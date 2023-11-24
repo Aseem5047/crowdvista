@@ -47,7 +47,7 @@ const editProfile = async (req, res) => {
     console.log("Data Received", req.body);
     const { _id, password, ...otherFields } = req.body;
 
-    console.log(id, _id);
+    // console.log(id, _id);
 
     if (id === _id) {
         try {

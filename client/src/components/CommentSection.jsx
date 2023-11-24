@@ -70,7 +70,7 @@ const CommentSection = ({ owner, project, currentUser }) => {
 		<>
 			{/* Comments */}
 
-			{project?.comments || comments?.length > 0 ? (
+			{comments?.length > 0 ? (
 				<Comments
 					postOwner={owner}
 					comments={comments}
