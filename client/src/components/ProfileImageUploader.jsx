@@ -8,7 +8,7 @@ const ProfileImageUploader = ({
 	uploadPhoto,
 	baseUrl,
 }) => {
-	console.log(addedPhoto.includes("https://storage.googleapis.com"));
+	console.log(typeof addedCoverPhoto);
 	return (
 		<>
 			{/* Profile Picture */}
@@ -22,9 +22,13 @@ const ProfileImageUploader = ({
 						<img
 							className="rounded-xl max-w-[300px] object-cover"
 							src={
-								addedPhoto[0].includes("https://storage.googleapis.com")
-									? `${addedPhoto[0]}`
-									: `${baseUrl}/uploads/${addedPhoto[0]}`
+								Array.isArray(addedPhoto) && addedPhoto.length > 0
+									? addedPhoto[0].includes("https://storage.googleapis.com")
+										? addedPhoto[0]
+										: `${baseUrl}/uploads/${addedPhoto[0]}`
+									: addedPhoto.includes("https://storage.googleapis.com")
+									? addedPhoto
+									: `${baseUrl}/uploads/${addedPhoto}`
 							}
 							alt=""
 						/>
@@ -83,9 +87,15 @@ const ProfileImageUploader = ({
 						<img
 							className="rounded-xl w-full object-cover "
 							src={
-								addedCoverPhoto[0].includes("https://storage.googleapis.com")
-									? `${addedCoverPhoto[0]}`
-									: `${baseUrl}/uploads/${addedCoverPhoto[0]}`
+								Array.isArray(addedCoverPhoto) && addedCoverPhoto.length > 0
+									? addedCoverPhoto[0].includes(
+											"https://storage.googleapis.com"
+									  )
+										? addedCoverPhoto[0]
+										: `${baseUrl}/uploads/${addedCoverPhoto[0]}`
+									: addedCoverPhoto.includes("https://storage.googleapis.com")
+									? addedCoverPhoto
+									: `${baseUrl}/uploads/${addedCoverPhoto}`
 							}
 							alt=""
 						/>
