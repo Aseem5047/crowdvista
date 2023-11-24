@@ -82,7 +82,7 @@ const EditProject = () => {
 					toast.error(error.response.data);
 				});
 		} else {
-			// new place
+			// new project
 			await axios
 				.post("/projects/addNew", data)
 				.then((response) => {
@@ -103,7 +103,7 @@ const EditProject = () => {
 		setData(initialState);
 	};
 
-	console.log(projectId);
+	// console.log(projectId);
 
 	return (
 		<>

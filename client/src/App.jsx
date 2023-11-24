@@ -66,6 +66,16 @@ function App() {
 		};
 	}, []);
 
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		const response = await axios.get("/getImages");
+	// 		const allImages = response.data; // Assuming the response is an array of images
+	// 		console.log(allImages);
+	// 	};
+
+	// 	fetchData();
+	// }, []);
+
 	console.log(user);
 
 	return (

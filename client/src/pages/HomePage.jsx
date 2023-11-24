@@ -207,9 +207,13 @@ const HomePage = () => {
 									<img
 										src={
 											owners[project?.owner]?.profilePicture
-												? `${baseUrl}/uploads/${
-														owners[project?.owner].profilePicture
-												  }`
+												? owners[project.owner].profilePicture.includes(
+														"https://storage.googleapis.com"
+												  )
+													? `${owners[project.owner].profilePicture}`
+													: `${baseUrl}/uploads/${
+															owners[project.owner].profilePicture
+													  }`
 												: `/users/${randomImage}`
 										}
 										alt="User"

@@ -96,10 +96,15 @@ const Uploader = ({
 					addedPhotos.map((link) => (
 						<div key={link} className="h-40 flex relative">
 							<img
-								className="rounded-xl w-52 object-cover "
-								src={`${baseUrl}/uploads/${link}`}
+								className="rounded-xl w-52 object-cover"
+								src={
+									link.includes("https://storage.googleapis.com")
+										? `${link}`
+										: `${baseUrl}/uploads/${link}`
+								}
 								alt=""
 							/>
+
 							<button
 								onClick={(event) => removePhoto(event, link)}
 								className="absolute bottom-1 right-1 bg-black bg-opacity-50 px-3 py-2 rounded-2xl text-white cursor-pointer hover:text-primary"

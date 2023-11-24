@@ -176,7 +176,11 @@ const Menu = ({
 							<img
 								src={
 									user.profilePicture
-										? `${baseUrl}/uploads/${user.profilePicture}`
+										? user?.profilePicture.includes(
+												"https://storage.googleapis.com"
+										  )
+											? `${user?.profilePicture}`
+											: `${baseUrl}/uploads/${user?.profilePicture}`
 										: `/users/${randomImage}`
 								}
 								alt=""

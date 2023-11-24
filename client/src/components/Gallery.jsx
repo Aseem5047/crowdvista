@@ -142,7 +142,11 @@ const Gallery = ({
 							project.photos.map((photo) => (
 								<div key={project?._id}>
 									<img
-										src={`${baseUrl}/${photo}`}
+										src={
+											photo.includes("https://storage.googleapis.com")
+												? `${photo}`
+												: `${baseUrl}/${photo}`
+										}
 										alt=""
 										className="rounded-xl w-full h-full aspect-square object-cover m-auto"
 									/>
@@ -158,7 +162,13 @@ const Gallery = ({
 								{project?.photos && project.photos[0] ? (
 									<img
 										onClick={() => setShowAllPhotos(true)}
-										src={`${baseUrl}/${project?.photos[0]}`}
+										src={
+											project?.photos[0].includes(
+												"https://storage.googleapis.com"
+											)
+												? `${project?.photos[0]}`
+												: `${baseUrl}/${project?.photos[0]}`
+										}
 										alt=""
 										className="aspect-video h-full max-h-[40rem] object-cover rounded-xl cursor-pointer"
 									/>
@@ -174,7 +184,13 @@ const Gallery = ({
 								{project?.photos && project.photos[1] ? (
 									<img
 										onClick={() => setShowAllPhotos(true)}
-										src={`${baseUrl}/${project?.photos[1]}`}
+										src={
+											project?.photos[1].includes(
+												"https://storage.googleapis.com"
+											)
+												? `${project?.photos[1]}`
+												: `${baseUrl}/${project?.photos[1]}`
+										}
 										alt=""
 										className="aspect-video w-full h-full object-cover rounded-xl cursor-pointer"
 									/>
@@ -189,7 +205,13 @@ const Gallery = ({
 									{project?.photos && project.photos[2] ? (
 										<img
 											onClick={() => setShowAllPhotos(true)}
-											src={`${baseUrl}/${project?.photos[2]}`}
+											src={
+												project?.photos[2].includes(
+													"https://storage.googleapis.com"
+												)
+													? `${project?.photos[2]}`
+													: `${baseUrl}/${project?.photos[2]}`
+											}
 											alt=""
 											className="aspect-video object-cover w-full h-full relative top-2 rounded-xl cursor-pointer"
 										/>
@@ -255,7 +277,11 @@ const Gallery = ({
 									<img
 										src={
 											owner?.profilePicture
-												? `${baseUrl}/${owner?.profilePicture}`
+												? owner?.profilePicture.includes(
+														"https://storage.googleapis.com"
+												  )
+													? `${owner?.profilePicture}`
+													: `${baseUrl}/${owner?.profilePicture}`
 												: `/users/${randomImage}`
 										}
 										alt="Profile"

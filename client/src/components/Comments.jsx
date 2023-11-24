@@ -33,7 +33,12 @@ const Comments = ({ comments, postOwner, baseUrl, commentsRef }) => {
 							<img
 								src={
 									postOwner
-										? `${baseUrl}/${c?.split(": ")[0]}`
+										? // ? `${baseUrl}/${c?.split(": ")[0]}`
+										  c
+												?.split(": ")[0]
+												.includes("https://storage.googleapis.com")
+											? `${c?.split(": ")[0]}`
+											: `${baseUrl}/${c?.split(": ")[0]}`
 										: `/users/${randomImage}`
 								}
 								alt=""

@@ -20,7 +20,11 @@ const ProfileImageUploader = ({
 					<div className="h-[275px] w-[300px] flex gap-4">
 						<img
 							className="rounded-xl w-full object-cover "
-							src={`${baseUrl}/uploads/${addedPhoto}`}
+							src={
+								addedPhoto.includes("https://storage.googleapis.com")
+									? `${addedPhoto}`
+									: `${baseUrl}/uploads/${addedPhoto}`
+							}
 							alt=""
 						/>
 
@@ -77,7 +81,11 @@ const ProfileImageUploader = ({
 					<div className="h-[275px] w-full flex gap-4">
 						<img
 							className="rounded-xl w-full object-cover "
-							src={`${baseUrl}/uploads/${addedCoverPhoto}`}
+							src={
+								addedCoverPhoto.includes("https://storage.googleapis.com")
+									? `${addedCoverPhoto}`
+									: `${baseUrl}/uploads/${addedCoverPhoto}`
+							}
 							alt=""
 						/>
 						<svg
