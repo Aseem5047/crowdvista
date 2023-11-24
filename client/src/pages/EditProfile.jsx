@@ -63,10 +63,24 @@ const EditProfile = () => {
 				.then((response) => {
 					if (e.target.name === "profilePicture") {
 						setAddedPhoto(response.data);
-						profileData.profilePicture = response.data[0];
+						if (Array.isArray(response.data) && response.data.length > 0) {
+							// If response.data is an array and has elements, select the first element
+							profileData.profilePicture = response.data[0];
+						} else {
+							// If response.data is not an array or is an empty array, select response.data itself
+							profileData.profilePicture = response.data;
+						}
+						// profileData.profilePicture = response.data;
 					} else if (e.target.name === "coverPicture") {
 						setAddedCoverPhoto(response.data);
-						profileData.coverPicture = response.data[0];
+						if (Array.isArray(response.data) && response.data.length > 0) {
+							// If response.data is an array and has elements, select the first element
+							profileData.coverPicture = response.data[0];
+						} else {
+							// If response.data is not an array or is an empty array, select response.data itself
+							profileData.coverPicture = response.data;
+						}
+						// profileData.coverPicture = response.data;
 					}
 				})
 				.catch((error) => toast.error("Unable to Upload"));

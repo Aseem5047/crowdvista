@@ -70,9 +70,11 @@ const Post = ({
 					<img
 						className=" object-cover w-4/5 m-auto md:w-full md:h-full aspect-square rounded-xl"
 						src={
-							project?.photos[0].includes("https://storage.googleapis.com")
-								? `${project?.photos[0]}`
-								: `${baseUrl}/uploads/${project?.photos[0]}`
+							(project?.photos?.[0]?.includes(
+								"https://storage.googleapis.com"
+							) &&
+								project?.photos?.[0]) ||
+							`${baseUrl}/uploads/${project?.photos?.[0]}`
 						}
 						alt=""
 					/>
