@@ -44,7 +44,9 @@ const ProfileCard = ({ user, randomImage, baseUrl, currentUser }) => {
 				<img
 					src={
 						user && user?.profilePicture
-							? `${baseUrl}/${user?.profilePicture}`
+							? user?.profilePicture.includes("https://storage.googleapis.com")
+								? `${user?.profilePicture}`
+								: `${baseUrl}/${user?.profilePicture}`
 							: "https://source.unsplash.com/1600x900/?nature,technology,cartoon" ||
 							  `/users/${randomImage}`
 					}

@@ -32,7 +32,9 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 				<img
 					src={
 						user && user?.profilePicture
-							? `${baseUrl}/uploads/${user?.profilePicture}`
+							? user?.profilePicture.includes("https://storage.googleapis.com")
+								? `${user?.profilePicture}`
+								: `${baseUrl}/uploads/${user?.profilePicture}`
 							: `https://source.unsplash.com/1600x900/?nature,technology,cartoon`
 					}
 					alt="Profile Image"
@@ -100,7 +102,13 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 								projects.map((project) => (
 									<Link to={`/projects/${project?._id}`} key={project?._id}>
 										<img
-											src={`${baseUrl}/uploads/${project?.photos[0]}`}
+											src={
+												project?.photos[0].includes(
+													"https://storage.googleapis.com"
+												)
+													? `${project?.photos[0]}`
+													: `${baseUrl}/uploads/${project?.photos[0]}`
+											}
 											alt=""
 											className="h-16 w-16 rounded-xl mt-2 hover:scale-110"
 										/>
@@ -160,7 +168,9 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 				<img
 					src={
 						user && user.coverPicture
-							? `${baseUrl}/uploads/${user?.coverPicture}`
+							? user.coverPicture.includes("https://storage.googleapis.com")
+								? `${user.coverPicture}`
+								: `${baseUrl}/uploads/${user.coverPicture}`
 							: "https://source.unsplash.com/1600x900/?nature,technology,cartoon"
 					}
 					alt="Cover Image"

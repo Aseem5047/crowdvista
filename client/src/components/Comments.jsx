@@ -18,6 +18,7 @@ const Comments = ({ comments, postOwner, baseUrl, commentsRef }) => {
 		// Use the stored image if available
 		randomImage = storedImage;
 	}
+
 	return (
 		<>
 			<div
@@ -32,9 +33,13 @@ const Comments = ({ comments, postOwner, baseUrl, commentsRef }) => {
 						<Link to={`/profile/${c?.split(": ")[4]}`} className="flex">
 							<img
 								src={
-									postOwner
-										? `${baseUrl}/${c?.split(": ")[0]}`
-										: `/users/${randomImage}`
+									c?.split(": ")[0] === "undefined"
+										? `/users/${randomImage}`
+										: c
+												.split(": ")[0]
+												.includes("https://storage.googleapis.com")
+										? c?.split(": ")[0]
+										: `${baseUrl}/${c?.split(": ")[0]}`
 								}
 								alt=""
 								className="h-12 w-12 rounded-full object-cover hover:opacity-75"

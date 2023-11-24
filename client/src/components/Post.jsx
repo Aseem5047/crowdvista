@@ -69,7 +69,11 @@ const Post = ({
 				{project.photos && (
 					<img
 						className=" object-cover w-4/5 m-auto md:w-full md:h-full aspect-square rounded-xl"
-						src={baseUrl + "/uploads/" + project?.photos[0]}
+						src={
+							project?.photos[0].includes("https://storage.googleapis.com")
+								? `${project?.photos[0]}`
+								: `${baseUrl}/uploads/${project?.photos[0]}`
+						}
 						alt=""
 					/>
 				)}
@@ -193,8 +197,10 @@ const Post = ({
 									className="h-8 w-8 rounded-full object-cover hover:scale-125"
 									key={id}
 									src={
-										person && person !== undefined
-											? `${baseUrl}/uploads/${person}`
+										person && person !== "undefined"
+											? person.includes("https://storage.googleapis.com")
+												? `${person}`
+												: `${baseUrl}/uploads/${person}`
 											: `/users/${randomImage}`
 									}
 								/>

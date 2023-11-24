@@ -63,10 +63,10 @@ const EditProfile = () => {
 				.then((response) => {
 					if (e.target.name === "profilePicture") {
 						setAddedPhoto(response.data);
-						profileData.profilePicture = response.data;
+						profileData.profilePicture = response.data[0];
 					} else if (e.target.name === "coverPicture") {
 						setAddedCoverPhoto(response.data);
-						profileData.coverPicture = response.data;
+						profileData.coverPicture = response.data[0];
 					}
 				})
 				.catch((error) => toast.error("Unable to Upload"));

@@ -8,6 +8,7 @@ const ProfileImageUploader = ({
 	uploadPhoto,
 	baseUrl,
 }) => {
+	console.log(addedPhoto.includes("https://storage.googleapis.com"));
 	return (
 		<>
 			{/* Profile Picture */}
@@ -17,10 +18,14 @@ const ProfileImageUploader = ({
 			<div className="mb-4 mt-4 gap-2 flex justify-start items-center">
 				{/* if there are previously added images then show them first */}
 				{addedPhoto.length > 0 ? (
-					<div className="h-[275px] w-[300px] flex gap-4">
+					<div className="h-[275px] max-w-[350px] flex gap-4 ">
 						<img
-							className="rounded-xl w-full object-cover "
-							src={`${baseUrl}/uploads/${addedPhoto}`}
+							className="rounded-xl max-w-[300px] object-cover"
+							src={
+								addedPhoto[0].includes("https://storage.googleapis.com")
+									? `${addedPhoto[0]}`
+									: `${baseUrl}/uploads/${addedPhoto[0]}`
+							}
 							alt=""
 						/>
 
@@ -30,8 +35,8 @@ const ProfileImageUploader = ({
 							viewBox="0 0 24 24"
 							strokeWidth={1.5}
 							stroke="currentColor"
-							className="w-6 h-6 hover:text-primary cursor-pointer"
-							onClick={() => deleteSelectedImage("cover")}
+							className="w-6 h-6 hover:text-primary cursor-pointer z-20"
+							onClick={() => deleteSelectedImage("profile")}
 						>
 							<path
 								strokeLinecap="round"
@@ -41,7 +46,7 @@ const ProfileImageUploader = ({
 						</svg>
 					</div>
 				) : (
-					<label className="border border-gray-300 flex justify-center items-center gap-2 p-10 font-medium rounded-xl h-40 w-full hover:bg-gray-100 cursor-pointer">
+					<label className="border border-gray-300 flex justify-center items-center gap-2 p-10 font-medium rounded-xl h-44 w-full md:w-1/3 hover:bg-gray-100 cursor-pointer">
 						<input
 							type="file"
 							className="hidden"
@@ -77,7 +82,11 @@ const ProfileImageUploader = ({
 					<div className="h-[275px] w-full flex gap-4">
 						<img
 							className="rounded-xl w-full object-cover "
-							src={`${baseUrl}/uploads/${addedCoverPhoto}`}
+							src={
+								addedCoverPhoto[0].includes("https://storage.googleapis.com")
+									? `${addedCoverPhoto[0]}`
+									: `${baseUrl}/uploads/${addedCoverPhoto[0]}`
+							}
 							alt=""
 						/>
 						<svg
@@ -97,7 +106,7 @@ const ProfileImageUploader = ({
 						</svg>
 					</div>
 				) : (
-					<label className="border border-gray-300 flex justify-center items-center gap-2 p-10 font-medium rounded-xl h-40 w-full hover:bg-gray-100 cursor-pointer">
+					<label className="border border-gray-300 flex justify-center items-center gap-2 p-10 font-medium rounded-xl h-60 w-full md:w-3/4 hover:bg-gray-100 cursor-pointer">
 						<input
 							type="file"
 							className="hidden"

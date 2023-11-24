@@ -136,7 +136,11 @@ const Search = ({
 													<img
 														src={
 															searchedUser.profilePicture
-																? `${baseUrl}/uploads/${searchedUser?.profilePicture}`
+																? searchedUser.profilePicture.includes(
+																		"https://storage.googleapis.com"
+																  )
+																	? `${searchedUser.profilePicture}`
+																	: `${baseUrl}/uploads/${searchedUser.profilePicture}`
 																: "https://source.unsplash.com/1600x900/?nature,technology,cartoon"
 														}
 														alt="profile"
@@ -179,7 +183,11 @@ const Search = ({
 														<img
 															src={
 																post
-																	? `${baseUrl}/uploads/${post?.photos[0]}`
+																	? post.photos[0].includes(
+																			"https://storage.googleapis.com"
+																	  )
+																		? `${post.photos[0]}`
+																		: `${baseUrl}/uploads/${post.photos[0]}`
 																	: "https://source.unsplash.com/1600x900/?nature,technology,cartoon"
 															}
 															alt="profile"

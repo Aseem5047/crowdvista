@@ -52,7 +52,13 @@ const Projects = ({ id }) => {
 							>
 								<div className="w-full lg:w-[35%] h-[350px] md:h-[200px] lg:h-[250px] my-auto">
 									<img
-										src={`${baseUrl}/${project?.photos[0]}`}
+										src={
+											project?.photos[0].includes(
+												"https://storage.googleapis.com"
+											)
+												? `${project?.photos[0]}`
+												: `${baseUrl}/${project?.photos[0]}`
+										}
 										alt=""
 										className="object-cover w-full h-full rounded-xl grow-0 shrink-1"
 									/>

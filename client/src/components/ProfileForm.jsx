@@ -24,7 +24,7 @@ const ProfileForm = ({
 }) => {
 	const handleChange = (e) => {
 		setProfileData({ ...profileData, [e.target.name]: e.target.value });
-		// console.log(e.target.name, e.target.value);
+		console.log(e.target.name, e.target.value);
 		const { name, value } = e.target;
 		let newErrors = { ...errors };
 

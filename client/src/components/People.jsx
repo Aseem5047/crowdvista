@@ -40,7 +40,11 @@ const People = () => {
 					<img
 						src={
 							currentUser && currentUser?.profilePicture
-								? `${baseUrl}/${currentUser?.profilePicture}`
+								? currentUser?.profilePicture.includes(
+										"https://storage.googleapis.com"
+								  )
+									? `${currentUser?.profilePicture}`
+									: `${baseUrl}/${currentUser?.profilePicture}`
 								: `/users/${randomImage}`
 						}
 						alt="profile"

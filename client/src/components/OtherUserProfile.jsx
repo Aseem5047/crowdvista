@@ -15,7 +15,11 @@ const OthercurrentUser = ({ id, baseUrl, currentUser }) => {
 					<img
 						src={
 							currentUser && currentUser.coverPicture
-								? `${baseUrl}/uploads/${currentUser?.coverPicture}`
+								? currentUser.coverPicture.includes(
+										"https://storage.googleapis.com"
+								  )
+									? `${currentUser.coverPicture}`
+									: `${baseUrl}/uploads/${currentUser.coverPicture}`
 								: "https://source.unsplash.com/1600x900/?nature,technology,cartoon"
 						}
 						alt="Cover Image"
@@ -62,7 +66,11 @@ const OthercurrentUser = ({ id, baseUrl, currentUser }) => {
 						<img
 							src={
 								currentUser && currentUser?.profilePicture
-									? `${baseUrl}/uploads/${currentUser?.profilePicture}`
+									? currentUser.profilePicture.includes(
+											"https://storage.googleapis.com"
+									  )
+										? `${currentUser.profilePicture}`
+										: `${baseUrl}/uploads/${currentUser.profilePicture}`
 									: `https://source.unsplash.com/1600x900/?nature,technology,cartoon`
 							}
 							alt="Profile Image"
