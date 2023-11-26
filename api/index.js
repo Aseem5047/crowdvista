@@ -32,7 +32,9 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cookieParser())
+
 // Handle preflight requests
+// origin: 'http://127.0.0.1:5173/'
 app.use(cors({
     credentials: true,
     origin: 'https://crowdvista.vercel.app',
