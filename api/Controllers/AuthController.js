@@ -27,7 +27,7 @@ const registerUser = async (req, res) => {
 
         const { password, ...otherDetails } = user._doc
 
-        res.status(200).cookie("token", token).json({ otherDetails, token });
+        res.status(200).cookie("token", token, { sameSite: 'None', secure: true }).json({ otherDetails, token });
 
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -55,7 +55,7 @@ const loginUser = async (req, res) => {
                 );
                 const { password, ...otherDetails } = user._doc
 
-                res.status(200).cookie('token', token).json({ otherDetails, token });
+                res.status(200).cookie('token', token, { sameSite: 'None', secure: true }).json({ otherDetails, token });
             }
         } else {
             res.status(404).json("User does not exist");

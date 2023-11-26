@@ -21,6 +21,7 @@ import Success from "./components/Success";
 
 function App() {
 	axios.defaults.baseURL = "https://crowdvistaback.vercel.app/";
+	// axios.defaults.baseURL = "http://127.0.0.1:5000";
 	axios.defaults.withCredentials = true;
 	const dispatch = useDispatch();
 	const { user, ready } = useSelector((state) => state.auth);
