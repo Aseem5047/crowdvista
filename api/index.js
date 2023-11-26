@@ -47,10 +47,6 @@ app.get('/', (req, res) => { res.json("Hi I am Server talking") })
 const multerStorage = multer.memoryStorage();
 const multerUpload = multer({ storage: multerStorage });
 
-// middleware
-
-const photosMiddleware = multer({ dest: "uploads" })
-
 // upload the image via link
 
 app.post('/upload/viaLink', async (req, res) => {
@@ -102,11 +98,10 @@ app.post('/upload', multerUpload.array('photos', 15), async (req, res) => {
 
         res.json(flattenedArray);
     } catch (error) {
-        console.error(error);
+        console.error("Error during image upload:", error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-
 
 
 // upload the profile image via local upload funcitonality
