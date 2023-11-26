@@ -56,20 +56,17 @@ const photosMiddleware = multer({ dest: "uploads" })
 app.post('/upload/viaLink', async (req, res) => {
     const { link } = req.body;
     const newName = "upload" + Date.now() + '.jpg';
-    const destinationPath = __dirname + '/uploads/' + newName;
 
     try {
-        await imageDownloader.image({
+        // Download the image directly to a buffer
+        const imageBuffer = await imageDownloader({
             url: link,
-            dest: __dirname + '/uploads/' + newName
+            dest: false // Setting dest to false returns the buffer instead of saving to a file
         });
-
-        // Read the downloaded file
-        const fileBuffer = fs.readFileSync(destinationPath);
 
         // Upload the image to Firebase Storage
         const file = bucket.file(newName);
-        await file.save(fileBuffer, { contentType: 'image/jpeg' });
+        await file.save(imageBuffer, { contentType: 'image/jpeg' });
 
         res.status(200).json(newName);
     } catch (error) {
@@ -77,6 +74,7 @@ app.post('/upload/viaLink', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
 
 
 // upload the image via local upload funcitonality
