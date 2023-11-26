@@ -16,7 +16,6 @@ import {
 
 import { fetchUser } from "./store/authMiddleware";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "./lib/authSlice";
 import Footer from "./components/Footer";
 import Success from "./components/Success";
 
