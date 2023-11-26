@@ -35,7 +35,7 @@ app.use(cookieParser())
 // Handle preflight requests
 app.use(cors({
     credentials: true,
-    origin: 'http://127.0.0.1:5173',
+    origin: 'https://crowdvista.vercel.app/',
 }))
 
 dotenv.config();
