@@ -121,7 +121,7 @@ const HomePage = () => {
 			))}
 		</div>
 	) : (
-		<div className="flex flex-row-reverse justify-between relative gap-16 min-[1550px]:px-0">
+		<div className="flex flex-row-reverse justify-between relative gap-4 min-[1550px]:px-0">
 			{user && (
 				<div className="hidden lg:flex lg:flex-col lg:items-start lg:justify-start gap-4 flex-1 sticky top-28 mt-10 h-[66vh] min-w-[20rem] max-w-[30rem] w-full">
 					<People />
