@@ -35,10 +35,10 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cookieParser())
 
 // Handle preflight requests
-// origin: ['http://127.0.0.1:5173', 'https://crowdvista.vercel.app'],
+// origin: 'https://crowdvista.vercel.app',
 app.use(cors({
     credentials: true,
-    origin: 'https://crowdvista.vercel.app',
+    origin: ['http://127.0.0.1:5173', 'https://crowdvista.vercel.app'],
 }))
 
 dotenv.config();
