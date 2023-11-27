@@ -190,7 +190,7 @@ const HomePage = () => {
 				<div
 					className={`${
 						projects.length === 1
-							? "flex flex-col-reverse md:grid md:grid-cols-2 gap-4 pb-10 justify-center items-center m-auto w-[60rem] mt-10"
+							? "flex flex-col-reverse md:grid md:grid-cols-2 gap-4 pb-10 justify-center items-center m-auto w-[60rem] min-[1750px]:w-[75rem] mt-10"
 							: `grid grid-cols-1 md:grid-cols-2 gap-4 items-center ${
 									!user
 										? "lg:grid-cols-2"
