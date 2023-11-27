@@ -121,9 +121,9 @@ const HomePage = () => {
 			))}
 		</div>
 	) : (
-		<div className="flex flex-row-reverse justify-between relative gap-8 xl:px-[12.5rem] min-[1550px]:px-0">
+		<div className="flex flex-row-reverse justify-between relative gap-16 min-[1550px]:px-0">
 			{user && (
-				<div className="hidden lg:flex lg:flex-col lg:items-start lg:justify-start gap-4 flex-1 sticky top-28 mt-10 h-[66vh] max-w-[30rem] w-full">
+				<div className="hidden lg:flex lg:flex-col lg:items-start lg:justify-start gap-4 flex-1 sticky top-28 mt-10 h-[66vh] min-w-[20rem] max-w-[30rem] w-full">
 					<People />
 					{/* Footer */}
 					<div className="flex flex-col items-start justify-center w-full gap-4 mt-2">
@@ -164,7 +164,7 @@ const HomePage = () => {
 			)}
 
 			{projects.length === 0 ? (
-				<div className="flex flex-col flex-1 items-center justify-center w-full h-[40rem] md:h-[75vh] min-[1750px]:h-[50rem]">
+				<div className="flex flex-col flex-1 items-center justify-center w-full h-[40rem] md:h-[75vh] min-[1750px]:h-[50rem] ">
 					<img
 						src="https://cdn.myportfolio.com/ec4657434c011e1a856a01752ef5f2f5/0c428e8239727076ce2e1716b1ee529eff79ad34466fea57e80c3ebc4336a019821c607b17d5ada3_car_202x158.gif?h=f5388f39b837cfa003110ecd644d88be&url=aHR0cHM6Ly9taXItczMtY2RuLWNmLmJlaGFuY2UubmV0L3Byb2plY3RzL29yaWdpbmFsLzlhMGJiMzQ4MDk2NzMzLlkzSnZjQ3czTmpnc05qQXhMREUzTERBLmdpZg=="
 						alt=""
@@ -190,7 +190,7 @@ const HomePage = () => {
 				<div
 					className={`${
 						projects.length === 1
-							? "flex flex-col-reverse md:grid md:grid-cols-2 gap-4 pb-10 justify-center items-center m-auto w-[60rem] min-[1750px]:w-[75rem] mt-10"
+							? "flex flex-col-reverse 2xl:grid 2xl:grid-cols-2 gap-4 pb-10 justify-center items-center m-auto w-[69rem] min-[1750px]:w-[75rem] mt-10 px-10"
 							: `grid grid-cols-1 md:grid-cols-2 gap-4 items-center ${
 									!user
 										? "lg:grid-cols-2"
