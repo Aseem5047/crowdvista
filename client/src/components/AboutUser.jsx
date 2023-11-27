@@ -39,8 +39,8 @@ const AboutUser = ({ baseUrl, userProfile }) => {
 							Page.
 						</span>
 						<p className="text-base sm:text-xl mb-4 text-center  w-3/4">
-							To see your bookings or add a new place to your profile check out
-							other tabs
+							To see your projects or add a new project to your profile check
+							out other tabs
 						</p>
 
 						<Link

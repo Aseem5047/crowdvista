@@ -190,7 +190,7 @@ const HomePage = () => {
 				<div
 					className={`${
 						projects.length === 1
-							? "flex justify-center items-center m-auto w-[40%] mt-10"
+							? "flex flex-col-reverse md:grid md:grid-cols-2 gap-4 pb-10 justify-center items-center m-auto w-[60rem] mt-10"
 							: `grid grid-cols-1 md:grid-cols-2 gap-4 items-center ${
 									!user
 										? "lg:grid-cols-2"
@@ -198,6 +198,30 @@ const HomePage = () => {
 							  } w-full h-fit m-auto mt-10 pb-4 md:px-10 lg:px-4 min-[1550px]:flex-1`
 					}`}
 				>
+					{projects.length === 1 && (
+						<div className="flex flex-col flex-1 items-center justify-center w-full h-[40rem] md:h-[75vh] min-[1750px]:h-[50rem]">
+							<img
+								src="https://cdn.myportfolio.com/ec4657434c011e1a856a01752ef5f2f5/0c428e8239727076ce2e1716b1ee529eff79ad34466fea57e80c3ebc4336a019821c607b17d5ada3_car_202x158.gif?h=f5388f39b837cfa003110ecd644d88be&url=aHR0cHM6Ly9taXItczMtY2RuLWNmLmJlaGFuY2UubmV0L3Byb2plY3RzL29yaWdpbmFsLzlhMGJiMzQ4MDk2NzMzLlkzSnZjQ3czTmpnc05qQXhMREUzTERBLmdpZg=="
+								alt=""
+								className="w-full h-auto object-contain"
+							/>
+							{user ? (
+								<Link
+									to={`/user/profile/${user._id}/project/new`}
+									className="button blueGrad cursor-pointer "
+								>
+									Create New Project
+								</Link>
+							) : (
+								<Link
+									to="/authenticate"
+									className="button blueGrad cursor-pointer "
+								>
+									Authenticate
+								</Link>
+							)}
+						</div>
+					)}
 					{projects.map((project) => (
 						<div
 							className="flex flex-col justify-center items-center border border-gray-300 shadow-lg rounded-xl mb-8 py-4"

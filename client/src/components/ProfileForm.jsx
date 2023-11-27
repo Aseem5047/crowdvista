@@ -113,7 +113,7 @@ const ProfileForm = ({
 	return (
 		<>
 			{user && (
-				<form onSubmit={editProfile} className="w-3/4">
+				<form onSubmit={editProfile} className="w-[85%]">
 					{/* Full Name */}
 					{preInput("Full Name", "Provide your Full Name")}
 					<input

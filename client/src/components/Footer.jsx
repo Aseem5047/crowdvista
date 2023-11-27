@@ -16,7 +16,7 @@ const Footer = () => {
 				<div className="fixed max-w-[13rem] w-full bottom-16  left-2 md:hidden flex flex-col gap-4 text-[15px] text-black font-normal items-center justify-center py-2 border border-gray-300 rounded-lg z-20 shadow-md shadow-gray-300 bg-white">
 					<div className="flex flex-col w-full justify-start text-start gap-2">
 						<Link to={"/"} className="py-2 px-4 hover:bg-gray-100">
-							Hello Guest
+							More
 						</Link>
 						<Link to={"/authenticate"} className="py-2 px-4 hover:bg-gray-100">
 							Authenticate
@@ -25,7 +25,7 @@ const Footer = () => {
 					<div className="w-full border-b border-gray-300"></div>
 					<div className="flex flex-col w-full justify-start text-start gap-2">
 						<Link to={"/"} className="py-2 px-4 hover:bg-gray-100">
-							Airbnb Home
+							CrowdVista Home
 						</Link>
 						<Link to={"/"} className="py-2 px-4 hover:bg-gray-100">
 							Help

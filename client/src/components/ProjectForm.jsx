@@ -18,7 +18,7 @@ const ProjectForm = ({
 	setGenre,
 }) => {
 	return (
-		<div className="flex flex-col gap-8 items-center justify-center mt-8 py-8">
+		<div className="flex flex-col gap-8 items-center justify-center mt-8 py-8 px-4">
 			<Link
 				to={`/user/profile/${id}/projects`}
 				className="flex justify-center items-center gap-4 button blueGrad mb-6"
@@ -114,7 +114,7 @@ const ProjectForm = ({
 						"Project Created At / Funds Required",
 						"Add the time and required amount of funds"
 					)}
-					<div className="grid grid-cols-[2fr_1fr] gap-4">
+					<div className="grid md:grid-cols-[2fr_1fr] gap-4">
 						<div className="mt-4 flex gap-2 flex-col justify-center items-start ">
 							<input
 								onChange={handleChange}

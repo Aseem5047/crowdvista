@@ -160,7 +160,7 @@ const Uploader = ({
 							</button>
 						</div>
 					))}
-				<label className="border border-gray-300 flex justify-center items-center gap-2 p-10 font-medium rounded-xl h-40 hover:bg-gray-300 cursor-pointer">
+				<label className="border border-gray-300 flex justify-center items-center gap-2 p-10 font-medium rounded-xl h-40 hover:bg-gray-300 cursor-pointer min-w-[15rem]">
 					<input
 						type="file"
 						multiple

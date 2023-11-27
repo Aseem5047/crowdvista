@@ -40,11 +40,11 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 					alt="Profile Image"
 					className={`${
 						user ? "rounded-full" : "rounded-2xl"
-					} h-40 w-40 rounded-full object-cover z-10 `}
+					} h-52 w-52 md:h-40 md:w-40 rounded-xl md:rounded-full object-cover z-10 `}
 				/>
 				<div className="flex flex-1 flex-col gap-4 w-full h-full pt-4 items-start justify-start">
 					<div className="flex gap-4 items-start h-fit">
-						<div className="flex flex-col">
+						<div className="flex flex-col grow min-w-[10rem]">
 							<span className="font-medium text-xl">
 								{userProfile?.fullname}
 							</span>
@@ -53,47 +53,49 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 							</span>
 						</div>
 
-						<Link
-							to={`/user/profile/${id}/edit`}
-							className=" blueGrad button h-fit p-3 m-0 hover:opacity:80 cursor-pointer flex gap-2 items-center"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								strokeWidth={1.5}
-								stroke="currentColor"
-								className="w-5 h-5"
+						<div className="flex items-center flex-wrap gap-4">
+							<Link
+								to={`/user/profile/${id}/edit`}
+								className=" blueGrad button h-fit p-3 m-0 hover:opacity:80 cursor-pointer flex gap-2 items-center"
 							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
-								/>
-							</svg>
-							Edit Profile
-						</Link>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									strokeWidth={1.5}
+									stroke="currentColor"
+									className="w-5 h-5"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+									/>
+								</svg>
+								Edit Profile
+							</Link>
 
-						<Link
-							to={`/user/profile/${id}/purchases`}
-							className=" blueGrad button h-fit p-3 m-0 hover:opacity:80 cursor-pointer flex gap-2 items-center"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								strokeWidth={1.5}
-								stroke="currentColor"
-								className="w-5 h-5"
+							<Link
+								to={`/user/profile/${id}/purchases`}
+								className=" blueGrad button h-fit p-3 m-0 hover:opacity:80 cursor-pointer flex gap-2 items-center"
 							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
-								/>
-							</svg>
-							Funded Projects
-						</Link>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 24 24"
+									strokeWidth={1.5}
+									stroke="currentColor"
+									className="w-5 h-5"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+									/>
+								</svg>
+								Funded Projects
+							</Link>
+						</div>
 					</div>
 					<div className="flex flex-col ">
 						<span className=" font-medium text-xl">Projects</span>
