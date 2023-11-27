@@ -74,7 +74,7 @@ const ProjectPage = () => {
 				</div>
 			) : (
 				<div>
-					<div className=" p-4 md:py-8 w-full">
+					<div className=" p-4 md:py-8 w-full mt-[2.5rem] lg:mt-0 flex items-center justify-center">
 						<Gallery
 							project={project}
 							showAllPhotos={showAllPhotos}

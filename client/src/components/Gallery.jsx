@@ -108,7 +108,7 @@ const Gallery = ({
 	console.log(project);
 
 	return (
-		<div className=" bg-gray-100 p-8  rounded-2xl">
+		<div className=" bg-gray-100 py-8 px-4  rounded-2xl my-auto">
 			{showAllPhotos ? (
 				<div className=" absolute inset-0 min-h-screen z-40 bg-white">
 					<div className="px-8 py-4 sticky top-0 z-20 bg-white">
@@ -156,8 +156,8 @@ const Gallery = ({
 				</div>
 			) : (
 				<>
-					<div className="relative">
-						<div className="grid gap-2 grid-cols-[2fr_1fr] ">
+					<div className="relative min-h-[15rem]">
+						<div className="grid gap-2 grid-cols-[2fr_1fr] min-h-[20rem]">
 							<div className="">
 								{project?.photos && project.photos[0] ? (
 									<img
@@ -269,7 +269,7 @@ const Gallery = ({
 								<span>{project.extraInfo}</span>
 							</div>
 
-							<div className="flex justify-between items-start w-full mt-7">
+							<div className="flex flex-wrap gap-4 justify-between items-start w-full mt-7">
 								<Link
 									to={`/user/profile/${project?.owner}`}
 									className="flex gap-2"
