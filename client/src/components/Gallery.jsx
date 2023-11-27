@@ -318,7 +318,7 @@ const Gallery = ({
 										className="button hover:opacity-75 bg-primary text-white m-0 py-2 px-4"
 										onClick={redirectToProfile}
 									>
-										Edit Profile
+										Edit Project
 									</button>
 									<button
 										onClick={() => setShowFunds(!showFunds)}
@@ -361,7 +361,7 @@ const Gallery = ({
 
 								<div className="flex flex-col items-center gap-2">
 									<span className="blueGrad flex md:w-full h-full items-center justify-center rounded-xl px-8 py-4 w-3/4">
-										Fund Required ₹ {project?.requiredPrice}
+										Fund Required ₹ {project?.requiredFunds}
 									</span>
 									<span className="blueGrad flex md:w-full h-full items-center justify-center rounded-xl px-8 py-4 w-3/4">
 										Fund Recieved ₹ {totalFunds}

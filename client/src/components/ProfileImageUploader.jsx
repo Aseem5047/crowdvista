@@ -8,7 +8,7 @@ const ProfileImageUploader = ({
 	uploadPhoto,
 	baseUrl,
 }) => {
-	console.log(typeof addedCoverPhoto);
+	// console.log(addedPhoto);
 	return (
 		<>
 			{/* Profile Picture */}

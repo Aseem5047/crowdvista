@@ -67,7 +67,7 @@ const Uploader = ({
 		console.log(finalData.photos);
 	};
 
-	// console.log(addedPhotos);
+	console.log(addedPhotos);
 
 	return (
 		<>

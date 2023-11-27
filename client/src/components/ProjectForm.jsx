@@ -8,8 +8,6 @@ const ProjectForm = ({
 	baseUrl,
 	data,
 	handleChange,
-	inputHeader,
-	inputDescription,
 	preInput,
 	addNewProject,
 	photoLink,

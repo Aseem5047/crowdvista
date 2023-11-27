@@ -9,7 +9,6 @@ import {
 	HomePage,
 	Profile,
 	EditProfile,
-	Projects,
 	EditProject,
 	ProjectPage,
 } from "./pages";

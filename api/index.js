@@ -18,6 +18,7 @@ const app = express()
 
 // Initialize Firebase Admin SDK
 const serviceAccount = require("./serviceAccountKey.json");
+const { default: axios } = require("axios");
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     storageBucket: "vista-45e4f.appspot.com",
@@ -34,7 +35,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cookieParser())
 
 // Handle preflight requests
-// origin: 'http://127.0.0.1:5173/'
+// origin: ['http://127.0.0.1:5173', 'https://crowdvista.vercel.app'],
 app.use(cors({
     credentials: true,
     origin: 'https://crowdvista.vercel.app',
@@ -49,30 +50,33 @@ app.get('/', (req, res) => { res.json("Hi I am Server talking") })
 const multerStorage = multer.memoryStorage();
 const multerUpload = multer({ storage: multerStorage });
 
-// upload the image via link
-
+// Upload image via link
 app.post('/upload/viaLink', async (req, res) => {
     const { link } = req.body;
     const newName = "upload" + Date.now() + '.jpg';
 
     try {
-        // Download the image directly to a buffer
-        const imageBuffer = await imageDownloader({
-            url: link,
-            dest: false // Setting dest to false returns the buffer instead of saving to a file
-        });
+        // Download the image from the link using axios
+        const response = await axios.get(link, { responseType: 'arraybuffer' });
 
         // Upload the image to Firebase Storage
         const file = bucket.file(newName);
-        await file.save(imageBuffer, { contentType: 'image/jpeg' });
+        await file.save(response.data, { contentType: 'image/jpeg' });
 
-        res.status(200).json(newName);
+        // Get the download URL for the uploaded image
+        const downloadURL = await file.getSignedUrl({ action: 'read', expires: '01-01-2100' });
+
+        // If the URL is an array, take the first element
+        const finalURL = Array.isArray(downloadURL) ? downloadURL[0] : downloadURL;
+
+        console.log(finalURL);
+
+        res.status(200).json(finalURL);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
-
 
 
 // upload the image via local upload funcitonality

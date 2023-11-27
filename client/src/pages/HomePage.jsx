@@ -164,11 +164,11 @@ const HomePage = () => {
 			)}
 
 			{projects.length === 0 ? (
-				<div className="flex flex-col flex-1 items-center justify-center">
+				<div className="flex flex-col flex-1 items-center justify-center w-full h-[40rem] md:h-[75vh] min-[1750px]:h-[50rem]">
 					<img
 						src="https://cdn.myportfolio.com/ec4657434c011e1a856a01752ef5f2f5/0c428e8239727076ce2e1716b1ee529eff79ad34466fea57e80c3ebc4336a019821c607b17d5ada3_car_202x158.gif?h=f5388f39b837cfa003110ecd644d88be&url=aHR0cHM6Ly9taXItczMtY2RuLWNmLmJlaGFuY2UubmV0L3Byb2plY3RzL29yaWdpbmFsLzlhMGJiMzQ4MDk2NzMzLlkzSnZjQ3czTmpnc05qQXhMREUzTERBLmdpZg=="
 						alt=""
-						className="w-[70%] h-[70%] object-contain"
+						className="w-[40rem] h-auto  object-contain"
 					/>
 					{user ? (
 						<Link

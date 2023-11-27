@@ -4,8 +4,6 @@ const UserModel = require('../models/UserModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { default: mongoose } = require('mongoose');
-const { decode } = jwt;
-
 
 // res - server to user / req - user to server
 
@@ -35,7 +33,7 @@ const addProject = async (req, res) => {
             features: features,
             extraInfo: extraInfo,
             createdAt: createdAt,
-            requiredPrice: requiredPrice,
+            requiredFunds: requiredPrice,
         })
         res.status(200).json(projectDoc)
     })
@@ -66,7 +64,7 @@ const editGivenProject = async (req, res) => {
                 features: features,
                 extraInfo: extraInfo,
                 createdAt: createdAt,
-                requiredPrice: requiredPrice,
+                requiredFunds: requiredPrice,
             })
 
             await projectDoc.save()
