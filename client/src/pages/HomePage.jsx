@@ -194,8 +194,8 @@ const HomePage = () => {
 							: `grid grid-cols-1 md:grid-cols-2 gap-4 items-center ${
 									!user
 										? "lg:grid-cols-2"
-										: `lg:w-[60%] lg:grid-cols-1 lg:mx-0 min-[1550px]:grid-cols-2 `
-							  } w-full h-fit m-auto mt-10 pb-4 md:px-10 lg:px-4 min-[1550px]:flex-1`
+										: `lg:w-[60%] lg:grid-cols-1 lg:mx-0 min-[1580px]:grid-cols-2 `
+							  } w-full h-fit m-auto mt-10 pb-4 md:px-10 lg:px-4 min-[1580px]:flex-1`
 					}`}
 				>
 					{projects.length === 1 && (

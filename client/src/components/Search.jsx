@@ -41,7 +41,7 @@ const Search = ({
 				} flex-grow max-w-[25rem] mx-10 items-center justify-center`}
 			>
 				{toggleSearch && user && (
-					<div className="fixed top-[5.25rem] bg-white w-1/3 left-1/2 transform -translate-x-[50%] self-center z-40 flex flex-col p-2 rounded-xl max-h-[38rem] overflow-y-scroll no-scrollbar">
+					<div className="fixed top-[5.25rem] bg-white w-[85%] lg:w-1/2 left-1/2 transform -translate-x-[50%] self-center z-40 flex flex-col p-2 rounded-xl max-h-[38rem] overflow-y-scroll no-scrollbar">
 						{/* Category */}
 						<div className="flex gap-2 items-center justify-start my-2 mx-4 flex-wrap w-[70%] text-black">
 							{category.map((tag, index) => (
