@@ -69,7 +69,7 @@ app.post('/upload/viaLink', async (req, res) => {
         // If the URL is an array, take the first element
         const finalURL = Array.isArray(downloadURL) ? downloadURL[0] : downloadURL;
 
-        console.log(finalURL);
+        // console.log(finalURL);
 
         res.status(200).json(finalURL);
     } catch (error) {

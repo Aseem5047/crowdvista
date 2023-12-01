@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import toast from "react-hot-toast";
 
 export const fetchUser = () => async (dispatch) => {
-    console.log("Here");
+    // console.log("Here");
     try {
         const response = await axios.get("/user/profile");
         dispatch(setUser(response.data));

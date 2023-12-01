@@ -82,7 +82,7 @@ const HomePage = () => {
 		day: "numeric",
 	});
 
-	console.log(owners);
+	// console.log(owners);
 
 	return !ready ? (
 		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center w-full  m-auto pb-4 px-10 lg:px-4 h-full">
@@ -194,7 +194,7 @@ const HomePage = () => {
 							: `grid grid-cols-1 md:grid-cols-2 gap-4 items-center ${
 									!user
 										? "lg:grid-cols-2"
-										: `lg:w-[60%] lg:grid-cols-1 lg:mx-0 min-[1580px]:grid-cols-2 `
+										: `lg:w-[60%] lg:grid-cols-2 lg:mx-0 min-[1580px]:grid-cols-2 `
 							  } w-full h-fit m-auto mt-10 pb-4 md:px-10 lg:px-4 min-[1580px]:flex-1`
 					}`}
 				>

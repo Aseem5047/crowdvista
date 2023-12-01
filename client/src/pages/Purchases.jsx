@@ -42,7 +42,7 @@ const Purchases = () => {
 			});
 	}, []);
 
-	console.log(projects);
+	// console.log(projects);
 
 	return (
 		<div className="flex flex-col gap-4 justify-center items-center w-full mt-8">

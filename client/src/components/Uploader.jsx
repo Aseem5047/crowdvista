@@ -22,12 +22,12 @@ const Uploader = ({
 			})
 			.then((response) => {
 				const { data: fileNames } = response;
-				console.log(fileNames);
+				// console.log(fileNames);
 				setAddedPhotos((prev) => {
 					return [...prev, ...fileNames];
 				});
 				finalData.photos = [...finalData.photos, ...fileNames]; // Use spread operator to update the state
-				console.log(finalData.photos);
+				// console.log(finalData.photos);
 			})
 			.catch((error) => console.log(error));
 	}
@@ -50,7 +50,7 @@ const Uploader = ({
 		setAddedPhotos((prev) => prev.filter((photo) => photo !== filename)); // Use functional form of setState
 		finalData.photos = addedPhotos.filter((photo) => photo !== filename); // Update the state outside of setState
 
-		console.log(finalData.photos);
+		// console.log(finalData.photos);
 	};
 
 	const selectAsMainPhoto = (event, filename) => {
@@ -64,10 +64,10 @@ const Uploader = ({
 			...addedPhotos.filter((photo) => photo !== filename),
 		]; // Update the state outside of setState
 
-		console.log(finalData.photos);
+		// console.log(finalData.photos);
 	};
 
-	console.log(addedPhotos);
+	// console.log(addedPhotos);
 
 	return (
 		<>

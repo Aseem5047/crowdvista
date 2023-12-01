@@ -71,7 +71,7 @@ const editGivenProject = async (req, res) => {
 
             res.status(200).json('The document has been Updated')
 
-            console.log(projectDoc);
+            // console.log(projectDoc);
         }
     })
 
@@ -148,7 +148,7 @@ const getProjectsById = async (req, res) => {
     const { projectId } = req.params
     // const place = await PlaceModel.findById(projectId)
 
-    console.log(projectId);
+    // console.log(projectId);
 
     const place = await ProjectModel.findById(projectId)
 
@@ -216,7 +216,7 @@ const getTimelinePosts = async (req, res) => {
             owner: { $in: followingUser.following },
         });
 
-        console.log(followingPosts);
+        // console.log(followingPosts);
 
         const allPosts = currentUserPosts.concat(followingPosts);
 
@@ -241,7 +241,7 @@ const commentProject = async (req, res) => {
 
     const { comment } = req.body;
 
-    console.log("Value ", comment);
+    // console.log("Value ", comment);
 
     project.comments.push(comment)
 
@@ -255,10 +255,10 @@ const commentProject = async (req, res) => {
 
 const getPostsBySearch = async (req, res) => {
     const { searchQuery, tags } = req.query
-    console.log(req.query);
+    // console.log(req.query);
     try {
         const title = new RegExp(searchQuery, 'i');
-        console.log(title);
+        // console.log(title);
         const posts = await ProjectModel.find({ $or: [{ 'title': title }, { features: { $in: tags.split(',') } }] });
 
         const user = await UserModel.find(({ $or: [{ 'username': title }, { 'fullname': title }] }));

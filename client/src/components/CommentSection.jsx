@@ -29,7 +29,7 @@ const CommentSection = ({ owner, project, currentUser }) => {
 		var dateTime = date + " " + time;
 
 		const finalComment = `${currentUser?.profilePicture}: ${currentUser?.username}: ${dateTime}: ${comment}: ${currentUser._id}`;
-		console.log("Final Comment ", finalComment);
+		// console.log("Final Comment ", finalComment);
 		try {
 			const response = await axios.post(`/projects/${project._id}/comment`, {
 				comment: finalComment, // Send finalComment as the 'comment' field in the request body
@@ -64,7 +64,7 @@ const CommentSection = ({ owner, project, currentUser }) => {
 		}
 	}, []);
 
-	console.log(project?.comments);
+	// console.log(project?.comments);
 
 	return (
 		<>

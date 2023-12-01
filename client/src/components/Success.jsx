@@ -59,7 +59,7 @@ const Success = () => {
 		}, 2000);
 	};
 
-	console.log(currentFunding, CurrentFundedProject);
+	// console.log(currentFunding, CurrentFundedProject);
 
 	return (
 		<div className="h-full w-full flex justify-center items-center flex-col text-center">

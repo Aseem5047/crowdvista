@@ -50,14 +50,22 @@ const Navbar = () => {
 		randomImage = storedImage;
 	}
 
-	const handleLogout = (event) => {
+	const handleLogout = async (event) => {
 		event.preventDefault();
-		setToggleMenu(false);
-		localStorage.clear();
-		Cookies.remove("token");
-		dispatch(clearUser(null));
-		toast.success("User Logged Out");
-		navigate("/authenticate");
+
+		try {
+			setToggleMenu(false);
+			// Remove token from localStorage and cookies
+			localStorage.clear();
+			Cookies.remove("token");
+			// Dispatch action to clear user
+			await dispatch(clearUser(null));
+			toast.success("User Logged Out");
+			navigate("/authenticate");
+		} catch (error) {
+			console.error("Logout error:", error);
+			// Handle error appropriately, e.g., show an error toast
+		}
 	};
 
 	const fetchPosts = async () => {

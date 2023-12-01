@@ -21,7 +21,7 @@ const Search = ({
 	category,
 	baseUrl,
 }) => {
-	console.log(toggleSearch);
+	// console.log(toggleSearch);
 	const [toggleMenu, setToggleMenu] = useState(false);
 	const togglePeopleMenu = () => {
 		setToggleMenu(!toggleMenu);

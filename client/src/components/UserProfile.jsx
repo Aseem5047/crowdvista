@@ -24,7 +24,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 		user.following.includes(allUser._id)
 	);
 
-	console.log(filteredUsers);
+	// console.log(filteredUsers);
 
 	return (
 		<div className="w-full flex flex-col items-center justify-center">

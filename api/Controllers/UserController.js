@@ -44,7 +44,7 @@ const getAllUsers = async (req, res) => {
 
 const editProfile = async (req, res) => {
     const id = req.params?.id;
-    console.log("Data Received", req.body);
+    // console.log("Data Received", req.body);
     const { _id, password, ...otherFields } = req.body;
 
     // console.log(id, _id);
@@ -120,7 +120,7 @@ const getProfile = async (req, res) => {
 const followUser = async (req, res) => {
     const id = req.params.id;
     const { userId } = req.body;
-    console.log(id, userId)
+    // console.log(id, userId)
     if (userId == id) {
         res.status(403).json("Action Forbidden");
     } else {

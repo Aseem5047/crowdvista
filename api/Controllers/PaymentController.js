@@ -5,7 +5,7 @@ const stripe = new Stripe("sk_test_51JovZySDBS9sTKNkPxVUAeBqLYkorrXjsoM6htb7HEGA
 const handler = async (req, res) => {
     if (req.method === 'POST') {
         try {
-            console.log("Body ", req.body);
+            // console.log("Body ", req.body);
             const params = {
                 submit_type: 'pay',
                 mode: 'payment',

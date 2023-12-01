@@ -30,7 +30,7 @@ const Profile = () => {
 				});
 	}, [id]);
 
-	console.log(subpage);
+	// console.log(subpage);
 	return (
 		<>
 			{user && user?._id === id ? (
