@@ -5,7 +5,7 @@ const Footer = () => {
 	const [toggleMenu, setToggleMenu] = useState(false);
 
 	return (
-		<div className="bg-white z-20 py-4 px-4 md:px-[80px] h-auto flex flex-wrap gap-4 items-center justify-between fixed bottom-0 w-full border border-gray-300 shadow-md shadow-gray-300 rounded-lg overflow-auto ">
+		<div className="bg-white z-20 py-4 px-4 md:px-[80px] h-auto flex flex-wrap gap-4 items-center justify-between fixed bottom-0 w-full  shadow-md shadow-gray-300 rounded-lg overflow-auto ">
 			{/* ---------------------------------------- */}
 
 			{/* {Left + Right} Section*/}
@@ -117,7 +117,7 @@ const Footer = () => {
 
 			{/* Right Section */}
 
-			<div className="flex items-center gap-4">
+			<div className="hidden lg:flex items-center gap-4">
 				<div className="hidden md:flex items-center justify-center gap-2 hover:scale-125">
 					<span className="cursor-pointer text-sm">Language</span>
 					<button>

@@ -10,4 +10,30 @@
 		<div id="root"></div>
 		<script type="module" src="/src/main.jsx"></script>
 	</body>
+	<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+
+	<script>
+		window.botpressWebChat.init({
+			composerPlaceholder: "Feel Free to ask Anything",
+			botConversationDescription: "Welcome Aboard Pleased to Have You",
+			botId: "59dda31e-0a78-4459-b2b9-a95da3712ade",
+			hostUrl: "https://cdn.botpress.cloud/webchat/v1",
+			messagingUrl: "https://messaging.botpress.cloud",
+			clientId: "59dda31e-0a78-4459-b2b9-a95da3712ade",
+			webhookId: "bda76401-9d81-42c5-8268-b73057c494ff",
+			lazySocket: true,
+			themeName: "prism",
+			botName: "CrowdVistax",
+			avatarUrl: "https://avatars.githubusercontent.com/u/80787027?v=4",
+			stylesheet:
+				"https://webchat-styler-css.botpress.app/prod/code/2ed1d0d5-3bf8-457f-90da-7242789e2c7f/v91320/style.css",
+			frontendVersion: "v1",
+			enableConversationDeletion: true,
+			showConversationsButton: true,
+			enableTranscriptDownload: true,
+			closeOnEscape: true,
+			theme: "prism",
+			themeColor: "#2563eb",
+		});
+	</script>
 </html>
