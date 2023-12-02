@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 // import basketReducer from '../lib/basketSlice'
 import authReducer from '../lib/authSlice'
+import chatReducer from '../lib/chatSlice'
 import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage'
 import { combineReducers } from "redux";
@@ -15,6 +16,7 @@ import thunk from 'redux-thunk'
 const reducers = combineReducers({
     // basket: basketReducer,
     auth: authReducer,
+    chat: chatReducer
 });
 
 const persistConfig = {

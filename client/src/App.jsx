@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Route, Routes, useLocation, Navigate } from "react-router-dom";
-import Navbar from "./components/Navbar";
+
+import Navbar from "./components/shared/Navbar";
+import Footer from "./components/shared/Footer";
+import Success from "./components/shared/Success";
 
 import {
 	Authenticate,
@@ -15,12 +18,11 @@ import {
 
 import { fetchUser } from "./store/authMiddleware";
 import { useDispatch, useSelector } from "react-redux";
-import Footer from "./components/Footer";
-import Success from "./components/Success";
+import Chat from "./pages/Chat";
 
 function App() {
-	axios.defaults.baseURL = "https://crowdvistaback.vercel.app/";
-	// axios.defaults.baseURL = "http://127.0.0.1:5000";
+	// axios.defaults.baseURL = "https://crowdvistaback.vercel.app/";
+	axios.defaults.baseURL = "http://127.0.0.1:5000";
 	axios.defaults.withCredentials = true;
 	const dispatch = useDispatch();
 	const { user, ready } = useSelector((state) => state.auth);
@@ -114,6 +116,11 @@ function App() {
 								element={
 									user ? <ProjectPage /> : <Navigate to="/authenticate" />
 								}
+							/>
+
+							<Route
+								path="/chat"
+								element={user ? <Chat /> : <Navigate to="/authenticate" />}
 							/>
 
 							{/* Catch-all route for other pages */}

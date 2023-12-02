@@ -3,12 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getUser } from "../lib/authSlice";
 import axios from "axios";
-import AccountNav from "../components/AccountNav";
+import AccountNav from "../components/profile/AccountNav";
 // import AboutUser from "../components/AboutUser";
 import Projects from "../pages/Projects";
 import Purchases from "../pages/Purchases";
-import OtherUserProfile from "../components/OtherUserProfile";
-import UserProfile from "../components/UserProfile";
+import OtherUserProfile from "../components/profile/OtherUserProfile";
+import UserProfile from "../components/profile/UserProfile";
 
 const Profile = () => {
 	const user = useSelector(getUser);

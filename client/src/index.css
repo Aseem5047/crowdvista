@@ -37,6 +37,10 @@
 	.hoverEffectText {
 		@apply hover:bg-primary hover:text-white hover:px-4 hover:py-2 rounded-xl transform ease-in-out duration-300 cursor-pointer;
 	}
+
+	.message {
+		@apply blueGrad text-white py-2 px-4 rounded-2xl rounded-bl-none max-w-[28rem] min-w-[10rem] w-fit  flex flex-col gap-2;
+	}
 }
 
 /* add the code bellow */
@@ -53,6 +57,10 @@
 			scrollbar-width: none; /* Firefox */
 		}
 	}
+}
+
+.react-input-emoji--input {
+	padding: 1rem;
 }
 
 /* styles for the form fields */

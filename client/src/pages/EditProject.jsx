@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import ProjectForm from "../components/ProjectForm";
+import ProjectForm from "../components/post/ProjectForm";
 import toast from "react-hot-toast";
 
 const EditProject = () => {

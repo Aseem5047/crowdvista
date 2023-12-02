@@ -3,8 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import { toast } from "react-hot-toast";
-import Register from "../components/Register";
-import Authorize from "../components/Authorize";
+import Register from "../components/auth/Register";
+import Authorize from "../components/auth/Authorize";
 import { setUser } from "../lib/authSlice";
 import { useDispatch } from "react-redux";
 
@@ -130,7 +130,7 @@ const Authenticate = () => {
 	};
 
 	const handleSubmit = async (e) => {
-		e.preventDefault();
+		// e.preventDefault();
 		if (register) {
 			try {
 				await axios

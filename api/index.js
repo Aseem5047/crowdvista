@@ -4,15 +4,16 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const imageDownloader = require('image-downloader');
 const multer = require("multer");
-const fs = require("fs");
+
 const admin = require("firebase-admin");
 
 const AuthRoute = require('./Routes/AuthRoute');
 const UserRoute = require('./Routes/UserRoute');
 const ProjectRoute = require('./Routes/ProjectRoute');
 const PaymentRoute = require('./Routes/PaymentRoute');
+const ChatRoute = require('./Routes/ChatRoute.js')
+const MessageRoute = require('./Routes/MessageRoute.js')
 
 const app = express()
 
@@ -131,6 +132,27 @@ app.post('/upload/profileImage', multerUpload.array('profileUploads', 1), async 
     }
 });
 
+// Add this endpoint for chat image upload
+app.post('/upload/chatImage', multerUpload.array('chatImages', 1), async (req, res) => {
+    try {
+        const file = req.files[0];
+        const newName = `chat_image_${Date.now()}_${file.originalname}`;
+
+        // Upload the chat image to Firebase Storage
+        const fileBuffer = file.buffer;
+        const firebaseFile = bucket.file(newName);
+        await firebaseFile.save(fileBuffer, { contentType: file.mimetype });
+
+        const downloadURL = await firebaseFile.getSignedUrl({ action: 'read', expires: '01-01-2100' });
+
+        res.json(downloadURL);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+
 
 // Route to get all uploaded images
 app.get('/getImages', async (req, res) => {
@@ -176,4 +198,5 @@ app.use('/auth', AuthRoute)
 app.use('/user', UserRoute)
 app.use('/projects', ProjectRoute)
 app.use('/payment', PaymentRoute)
-// app.use('/bookings', BookingsRoute)
+app.use('/chat', ChatRoute)
+app.use('/message', MessageRoute)

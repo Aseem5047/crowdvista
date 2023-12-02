@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import axios from "axios"; // Import axios
-import Loader from "../components/Loader";
-import Gallery from "../components/Gallery";
+import Loader from "../components/shared/Loader";
+import Gallery from "../components/shared/Gallery";
 import { useSelector } from "react-redux";
 import { getUser } from "../lib/authSlice";
 

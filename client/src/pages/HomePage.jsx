@@ -5,9 +5,9 @@ import { getUser } from "../lib/authSlice";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-import Post from "../components/Post";
+import Post from "../components/post/Post";
 import { useSelector } from "react-redux";
-import People from "../components/People";
+import People from "../components/shared/People";
 
 const HomePage = () => {
 	const [projects, setProjects] = useState([]);
