@@ -7,7 +7,7 @@ import { saveUser } from "../../../lib/chatSlice";
 const Conversation = ({ data, currentUser, online, everyChat }) => {
 	const [userData, setUserData] = useState(null);
 	const loading = useSelector(getLoading);
-
+	const dispatch = useDispatch();
 	useEffect(() => {
 		const userId = data.members.find((id) => id !== currentUser);
 		const getUserData = async () => {

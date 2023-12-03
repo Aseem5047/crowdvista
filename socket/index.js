@@ -1,14 +1,11 @@
 // keeping check for cors errors
-const server = "https://crowdvista-socket.vercel.app"
 // const server = 8800
+const server = "https://crowdvista-socket.vercel.app"
 const io = require("socket.io")(server, {
     cors: {
-        // origin: ['http://127.0.0.1:5173', 'https://crowdvista.vercel.app', 'https://crowdvista-socket.vercel.app/socket.io/?EIO=4&transport=polling&t=OmnrjCK'],
-        origin: '*',
+        origin: ['http://127.0.0.1:5173', 'https://crowdvista.vercel.app'],
         methods: ['GET', 'POST'], // Add the allowed methods
         credentials: true, // Allow credentials if needed
-
-
     },
 });
 
