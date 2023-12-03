@@ -94,7 +94,7 @@ const Chat = () => {
 				window.location.reload();
 			}, 3000);
 		} else {
-			toast.error("A chat with selected user already exists");
+			toast.error("Conversation with user exists");
 		}
 	};
 
