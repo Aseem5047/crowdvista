@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getLoading } from "../../../lib/authSlice";
 import axios from "axios";
+import { saveUser } from "../../../lib/chatSlice";
 
 const Conversation = ({ data, currentUser, online, everyChat }) => {
 	const [userData, setUserData] = useState(null);
-	const dispatch = useDispatch();
 	const loading = useSelector(getLoading);
 
 	useEffect(() => {
@@ -14,7 +14,7 @@ const Conversation = ({ data, currentUser, online, everyChat }) => {
 			try {
 				const { data } = await axios.get(`/user/profile/${userId}`);
 				setUserData(data);
-				dispatch(setUser({ data: data }));
+				dispatch(saveUser({ data: data }));
 			} catch (error) {
 				console.log(error);
 			}

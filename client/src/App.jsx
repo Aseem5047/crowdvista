@@ -21,8 +21,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Chat from "./pages/Chat";
 
 function App() {
-	axios.defaults.baseURL = "https://crowdvistaback.vercel.app/";
-	// axios.defaults.baseURL = "http://127.0.0.1:5000";
+	// axios.defaults.baseURL = "https://crowdvistaback.vercel.app/";
+	axios.defaults.baseURL = "http://127.0.0.1:5000";
 	axios.defaults.withCredentials = true;
 	const dispatch = useDispatch();
 	const { user, ready } = useSelector((state) => state.auth);
