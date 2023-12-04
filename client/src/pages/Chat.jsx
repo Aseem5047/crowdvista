@@ -42,11 +42,18 @@ const Chat = () => {
 
 	// Connect to Socket.io
 	useEffect(() => {
-		// socket.current = io("ws://localhost:8800");
+		socket.current = io("ws://localhost:8800");
 		// Access-Control-Allow-Origin
-		socket.current = io("https://crowdvista-socket.vercel.app", {
-			withCredentials: true,
-		});
+		// socket.current = io("https://crowdvista-socket.vercel.app", {
+		// 	"user-agent": ["chrome", "mozilla", "edge"],
+		// 	withCredentials: true,
+		// 	headers: "Access-Control-Allow-Origin",
+		// });
+		// socket.current = io("wss://crowdvistasocket.glitch.me/", {
+		// 	"user-agent": ["chrome", "mozilla", "edge"],
+		// 	withCredentials: true,
+		// 	headers: "Access-Control-Allow-Origin",
+		// });
 		socket.current.emit("new-user-add", user._id);
 		socket.current.on("get-users", (users) => {
 			setOnlineUsers(users);
@@ -108,8 +115,8 @@ const Chat = () => {
 		<>
 			<div className="relative flex justify-center mt-10 gap-4 flex-wrap">
 				{/* Left Side */}
-				<div className="flex flex-col gap-4 w-full max-w-[30rem] md:max-w-[20rem] rounded-xl h-[75vh]">
-					<div className="flex flex-col gap-4 bg-gray-100 rounded-xl p-4 h-full min-h-[45vh] md:min-h-[80vh] overflow-x-hidden overflow-y-scroll no-scrollbar">
+				<div className="flex flex-col gap-4 w-full max-w-[30rem] md:max-w-[20rem] rounded-xl h-fit max-h-[75vh]">
+					<div className="flex flex-col gap-4 bg-gray-100 rounded-xl p-4 h-full min-[1633px]:min-h-[80vh] overflow-x-hidden overflow-y-scroll no-scrollbar">
 						<span className="text-2xl font-semibold ">Accounts</span>
 
 						{/* creating chats with new users */}
@@ -157,8 +164,8 @@ const Chat = () => {
 					</div>
 				</div>
 
-				<div className="flex flex-col gap-4 w-full max-w-[30rem] md:max-w-[20rem] rounded-xl h-fit md:h-[75vh]">
-					<div className="flex flex-col gap-4 bg-gray-100 rounded-xl p-4 h-full min-h-fit md:min-h-[80vh] overflow-x-hidden overflow-y-scroll no-scrollbar">
+				<div className="flex flex-col gap-4 w-full max-w-[30rem] md:max-w-[20rem] rounded-xl h-fit md:max-h-[75vh]">
+					<div className="flex flex-col gap-4 bg-gray-100 rounded-xl p-4 h-full min-h-fit min-[1633px]:min-h-[80vh] overflow-x-hidden overflow-y-scroll no-scrollbar">
 						{chats.length === 0 ? (
 							<span className="text-2xl font-semibold ">
 								Start Conversation
@@ -205,7 +212,7 @@ const Chat = () => {
 
 				{/* Right Side */}
 
-				<div className="flex flex-col gap-4 w-full max-w-[50rem]">
+				<div className="flex flex-col gap-4 w-full sm:w-[85%] 2xl:max-w-[50rem] mb-4">
 					<ChatBox
 						chat={currentChat}
 						currentUser={user._id}

@@ -1,6 +1,6 @@
 // keeping check for cors errors
-// const server = 8800
-const server = "https://crowdvista-socket.vercel.app"
+const server = 8800
+// const server = "https://crowdvista-socket.vercel.app"
 const io = require("socket.io")(server, {
     cors: {
         origin: ['http://127.0.0.1:5173', 'https://crowdvista.vercel.app'],
@@ -42,3 +42,5 @@ io.on("connection", (socket) => {
         }
     });
 });
+
+console.log((new Date()) + " Server is listening on port " + server);

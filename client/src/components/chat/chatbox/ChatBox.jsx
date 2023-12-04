@@ -184,7 +184,7 @@ const ChatBox = ({
 
 	return (
 		<>
-			<div className="bg-gray-100 border-radius-[1rem] grid grid-rows-[10vh,60vh,10vh] rounded-xl p-4 max-h-[80vh] relative mx-4 md:mx-0">
+			<div className="bg-gray-100 border-radius-[1rem] grid grid-rows-[10vh,60vh,10vh] rounded-xl p-4 max-h-[80vh] relative  md:mx-0">
 				{chat ? (
 					<>
 						{/* chat-header */}
