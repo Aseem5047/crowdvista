@@ -166,9 +166,9 @@ const Navbar = () => {
 				{/* Logo */}
 				<Link to="/" className="cursor-pointer">
 					<img
-						src="/assets/logo.png"
+						src="/assets/logo.jpg"
 						alt=""
-						className="text-primary cursor-pointer hover:scale-125 h-auto w-40"
+						className="text-primary cursor-pointer hover:scale-125 h-auto w-40 lg:w-60"
 					/>{" "}
 				</Link>
 
