@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import People from "./People";
-import { useSelector } from "react-redux";
 
 const Search = ({
 	toggleSearch,

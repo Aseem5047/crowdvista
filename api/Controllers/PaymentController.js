@@ -40,8 +40,10 @@ const handler = async (req, res) => {
                 }),
 
 
-                success_url: `http://127.0.0.1:5173/success`,
-                cancel_url: `http://127.0.0.1:5173/`,
+                success_url: `https://crowdvista.vercel.app//success`,
+                cancel_url: `https://crowdvista.vercel.app/`,
+                // success_url: `http://127.0.0.1:5173/success`,
+                // cancel_url: `http://127.0.0.1:5173/`,
             }
 
             // Create Checkout Sessions from body params.
