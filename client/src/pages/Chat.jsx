@@ -108,9 +108,6 @@ const Chat = () => {
 		}
 	};
 
-	console.log(chats);
-	console.log(activeUsers);
-
 	return (
 		<>
 			<div className="relative grid xl:grid-cols-2 justify-center mt-10 gap-4 flex-wrap 2xl:flex-nowrap">

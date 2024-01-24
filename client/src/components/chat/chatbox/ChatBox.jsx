@@ -180,8 +180,6 @@ const ChatBox = ({
 	const scroll = useRef();
 	const imageRef = useRef();
 
-	console.log("Image ", image);
-
 	return (
 		<>
 			<div className="bg-gray-100 border-radius-[1rem] w-full grid grid-rows-[10vh,60vh,10vh] rounded-xl p-4 max-h-[80vh] relative  md:mx-0">

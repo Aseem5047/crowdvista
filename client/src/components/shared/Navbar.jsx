@@ -158,8 +158,6 @@ const Navbar = () => {
 		}
 	};
 
-	console.log(posts, searchedUsers);
-
 	return (
 		<>
 			<div className="bg-white z-40 flex justify-between w-full items-center shadow shadow-gray-200 fixed top-0 px-4 py-4 lg:px-[80px]">

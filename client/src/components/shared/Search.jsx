@@ -124,40 +124,41 @@ const Search = ({
 									<span className="blueGrad mx-4 p-2 rounded-xl sticky top-0 z-20">
 										Users Found
 									</span>
-									{searchedUsers.map((searchedUser) => (
-										<>
-											<div className="flex items-center justify-start gap-2 w-full px-4 mb-2 border-b pb-4">
-												<Link
-													to={`/user/profile/${searchedUser?._id}`}
-													className="transition-all duration-500 hover:scale-110"
-												>
-													<img
-														src={
-															searchedUser.profilePicture
-																? searchedUser.profilePicture.includes(
-																		"https://storage.googleapis.com"
-																  )
-																	? `${searchedUser.profilePicture}`
-																	: `${baseUrl}/uploads/${searchedUser.profilePicture}`
-																: "https://source.unsplash.com/1600x900/?nature,technology,cartoon"
-														}
-														alt="profile"
-														className="w-12 h-12 rounded-full object-cover"
-													/>
-												</Link>
-												<Link
-													to={`/user/profile/${searchedUser?._id}`}
-													className="flex flex-col flex-wrap text-black"
-												>
-													<span className="text-base hoverEffectText text-ellipsis whitespace-nowrap overflow-hidden  w-fit max-w-[9rem]">
-														{searchedUser?.username}
-													</span>
-													<span className="text-sm bold text-ellipsis whitespace-nowrap w-[22rem] overflow-hidden">
-														{searchedUser?.fullname}
-													</span>
-												</Link>
-											</div>
-										</>
+									{searchedUsers.map((searchedUser, index) => (
+										<div
+											className="flex items-center justify-start gap-2 w-full px-4 mb-2 border-b pb-4"
+											key={index + user.id}
+										>
+											<Link
+												to={`/user/profile/${searchedUser?._id}`}
+												className="transition-all duration-500 hover:scale-110"
+											>
+												<img
+													src={
+														searchedUser.profilePicture
+															? searchedUser.profilePicture.includes(
+																	"https://storage.googleapis.com"
+															  )
+																? `${searchedUser.profilePicture}`
+																: `${baseUrl}/uploads/${searchedUser.profilePicture}`
+															: "https://source.unsplash.com/1600x900/?nature,technology,cartoon"
+													}
+													alt="profile"
+													className="w-12 h-12 rounded-full object-cover"
+												/>
+											</Link>
+											<Link
+												to={`/user/profile/${searchedUser?._id}`}
+												className="flex flex-col flex-wrap text-black"
+											>
+												<span className="text-base hoverEffectText text-ellipsis whitespace-nowrap overflow-hidden  w-fit max-w-[9rem]">
+													{searchedUser?.username}
+												</span>
+												<span className="text-sm bold text-ellipsis whitespace-nowrap w-[22rem] overflow-hidden">
+													{searchedUser?.fullname}
+												</span>
+											</Link>
+										</div>
 									))}
 								</div>
 							</div>

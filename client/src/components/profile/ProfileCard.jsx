@@ -34,7 +34,6 @@ const ProfileCard = ({ user, randomImage, baseUrl, currentUser }) => {
 		// setFollowing((prev) => !prev);
 	};
 
-	console.log(user);
 	return (
 		<div
 			key={user._id}

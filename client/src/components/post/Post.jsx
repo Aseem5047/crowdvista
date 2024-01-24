@@ -57,8 +57,6 @@ const Post = ({
 		}
 	};
 
-	console.log(project);
-
 	return (
 		<div className="mt-2">
 			<Link
