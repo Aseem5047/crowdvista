@@ -11,7 +11,7 @@ const AccountNav = ({ subpage, id }) => {
 						subpage === "profile" || subpage === undefined
 							? "bg-primary text-white hover:scale-110"
 							: "bg-gray-100 hover:bg-primary hover:text-white"
-					} py-2 px-6  rounded-2xl  font-medium flex gap-2 items-cecnter justi-center`}
+					} hidden md:flex py-2 px-6  rounded-2xl  font-medium  gap-2 items-cecnter justi-center`}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

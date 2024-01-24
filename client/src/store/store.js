@@ -13,6 +13,18 @@ import thunk from 'redux-thunk'
 //     serializableCheck: false
 // })
 
+// src/store/store.js
+// import { configureStore } from '@reduxjs/toolkit';
+// import cartReducer from './cartSlice';
+
+// const store = configureStore({
+//   reducer: {
+//     cart: cartReducer,
+//   },
+// });
+
+// export default store;
+
 const reducers = combineReducers({
     // basket: basketReducer,
     auth: authReducer,
@@ -30,3 +42,4 @@ export const store = configureStore({
     reducer: persistedReducer,
     middleware: [thunk],
 })
+

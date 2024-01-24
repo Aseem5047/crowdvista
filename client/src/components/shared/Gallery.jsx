@@ -350,7 +350,7 @@ const Gallery = ({
 								project?.comments.length === 0 && "mt-8"
 							} flex  items-center justify-center gap-2`}
 						>
-							<div className="w-full grid md:grid-cols-3 md:mt-2 gap-12 ">
+							<div className="w-full grid md:grid-cols-[1fr_2fr_2fr] md:mt-2 gap-12 items-center">
 								<div>
 									{/* <span className="blueGrad flex w-full h-full items-center justify-center rounded-xl text-xl font-semibold">
 										Thanks For Your Support

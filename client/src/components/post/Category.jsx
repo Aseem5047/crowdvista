@@ -27,7 +27,11 @@ const Category = ({ selected, onChange, finalData }) => {
 	return (
 		<>
 			<div className="grid gap-3 mt-4  grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mb-10">
-				<label className="relative  flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:bg-[#80808014]">
+				<label
+					className={`relative flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:scale-105   ${
+						selected.includes("art") && "bg-[#03a9f4f0]"
+					} overflow-clip`}
+				>
 					<input
 						type="checkbox"
 						checked={selected.includes("art")}
@@ -54,7 +58,11 @@ const Category = ({ selected, onChange, finalData }) => {
 					<label className="w-full h-full absolute -z-10 hidden " />
 				</label>
 
-				<label className="relative flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:bg-[#80808014]">
+				<label
+					className={`relative  flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:scale-105  ${
+						selected.includes("technology") && "bg-[#03a9f4f0]"
+					} overflow-clip`}
+				>
 					<input
 						type="checkbox"
 						checked={selected.includes("technology")}
@@ -81,7 +89,11 @@ const Category = ({ selected, onChange, finalData }) => {
 					<label className="w-full h-full absolute -z-10 hidden " />
 				</label>
 
-				<label className="relative flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:bg-[#80808014]">
+				<label
+					className={`relative  flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:scale-105  ${
+						selected.includes("charity") && "bg-[#03a9f4f0]"
+					} overflow-clip`}
+				>
 					<input
 						type="checkbox"
 						checked={selected.includes("charity")}
@@ -108,7 +120,11 @@ const Category = ({ selected, onChange, finalData }) => {
 					<label className="w-full h-full absolute -z-10 hidden " />
 				</label>
 
-				<label className="relative flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:bg-[#80808014]">
+				<label
+					className={`relative  flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:scale-105  ${
+						selected.includes("music") && "bg-[#03a9f4f0]"
+					} overflow-clip`}
+				>
 					<input
 						type="checkbox"
 						checked={selected.includes("music")}
@@ -135,7 +151,11 @@ const Category = ({ selected, onChange, finalData }) => {
 					<label className="w-full h-full absolute -z-10 hidden " />
 				</label>
 
-				<label className="relative flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:bg-[#80808014]">
+				<label
+					className={`relative  flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:scale-105  ${
+						selected.includes("film") && "bg-[#03a9f4f0]"
+					} overflow-clip`}
+				>
 					<input
 						type="checkbox"
 						checked={selected.includes("film")}
@@ -162,7 +182,11 @@ const Category = ({ selected, onChange, finalData }) => {
 					<label className="w-full h-full absolute -z-10 hidden " />
 				</label>
 
-				<label className="relative flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:bg-[#80808014]">
+				<label
+					className={`relative  flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:scale-105  ${
+						selected.includes("health") && "bg-[#03a9f4f0]"
+					} overflow-clip`}
+				>
 					<input
 						type="checkbox"
 						checked={selected.includes("health")}
@@ -189,7 +213,11 @@ const Category = ({ selected, onChange, finalData }) => {
 					<label className="w-full h-full absolute -z-10 hidden " />
 				</label>
 
-				<label className="relative flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:bg-[#80808014]">
+				<label
+					className={`relative  flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:scale-105  ${
+						selected.includes("fashion") && "bg-[#03a9f4f0]"
+					} overflow-clip`}
+				>
 					<input
 						type="checkbox"
 						checked={selected.includes("fashion")}
@@ -221,7 +249,11 @@ const Category = ({ selected, onChange, finalData }) => {
 					<label className="w-full h-full absolute -z-10 hidden " />
 				</label>
 
-				<label className="relative flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:bg-[#80808014]">
+				<label
+					className={`relative  flex items-center justify-start lg:justify-center gap-4 border border-gray-300 p-4 rounded-xl cursor-pointer hover:scale-105  ${
+						selected.includes("food") && "bg-[#03a9f4f0]"
+					} overflow-clip`}
+				>
 					<input
 						type="checkbox"
 						checked={selected.includes("food")}
