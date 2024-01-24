@@ -168,7 +168,7 @@ const Navbar = () => {
 					<img
 						src="/assets/logo.png"
 						alt=""
-						className="text-primary cursor-pointer hover:scale-125 h-auto w-40 lg:w-60"
+						className="text-primary cursor-pointer transition-all duration-500 hover:scale-110 h-auto w-40 lg:w-52"
 					/>{" "}
 				</Link>
 

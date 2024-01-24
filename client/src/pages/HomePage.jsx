@@ -121,9 +121,9 @@ const HomePage = () => {
 			))}
 		</div>
 	) : (
-		<div className="flex flex-row-reverse justify-between relative gap-4 min-[1550px]:px-0">
+		<div className="flex flex-col-reverse items-center justify-center lg:items-start lg:flex-row-reverse lg:justify-between relative gap-4 min-[1550px]:px-0">
 			{user && (
-				<div className="hidden lg:flex lg:flex-col lg:items-start lg:justify-start gap-4 flex-1 sticky top-28 mt-10 h-[66vh] min-w-[20rem] max-w-[30rem] w-full">
+				<div className="flex flex-col items-start justify-start gap-4 flex-1 sticky top-28 mt-10 pb-4 h-[66vh] min-w-[20rem] max-w-[30rem] w-full">
 					<People />
 					{/* Footer */}
 					<div className="flex flex-col items-start justify-center w-full gap-4 mt-2">
@@ -190,11 +190,9 @@ const HomePage = () => {
 				<div
 					className={`${
 						projects.length === 1
-							? "flex flex-col-reverse 2xl:grid 2xl:grid-cols-2 gap-4 pb-10 justify-center items-center m-auto w-[69rem] min-[1750px]:w-[75rem] mt-10 md:px-10"
+							? "flex flex-col-reverse 2xl:grid 2xl:grid-cols-2 gap-4 pb-10 justify-center items-center m-auto w-full mt-10 md:px-10"
 							: `grid grid-cols-1 md:grid-cols-2 gap-4 items-center ${
-									!user
-										? "lg:grid-cols-2"
-										: `lg:w-[60%] lg:grid-cols-2 lg:mx-0 min-[1580px]:grid-cols-2 `
+									user && `lg:w-3/4`
 							  } w-full h-fit m-auto mt-10 pb-4 md:px-10 lg:px-4 min-[1580px]:flex-1`
 					}`}
 				>
@@ -222,77 +220,73 @@ const HomePage = () => {
 							)}
 						</div>
 					)}
-					{projects.map((project) => (
-						<div
-							className="flex flex-col justify-center items-center border border-gray-300 shadow-lg rounded-xl mb-8 py-4"
-							key={project._id}
-						>
-							<div className="flex justify-between items-center px-4 py-2 w-full">
-								<Link
-									to={`/user/profile/${project?.owner}`}
-									className="flex gap-2"
-								>
-									<img
-										src={
-											owners[project?.owner]?.profilePicture
-												? owners[project.owner].profilePicture.includes(
-														"https://storage.googleapis.com"
-												  )
-													? `${owners[project.owner].profilePicture}`
-													: `${baseUrl}/uploads/${
-															owners[project.owner].profilePicture
-													  }`
-												: `/users/${randomImage}`
-										}
-										alt="User"
-										className="h-12 w-12 rounded-full object-cover hover:scale-125"
-									/>
-									<div className="flex flex-col items-start justify-center">
-										<span className="hoverEffectText">
-											{owners[project.owner]
-												? owners[project.owner].username
-												: "Welcome Guest"}
-										</span>
-										{/* <span className="hoverEffectText">
-									{" "}
-									{owners[project.owner]
-										? owners[project.owner].username
-										: "Guest"}
-								</span> */}
-										<span>
-											{moment(project.createdAt).fromNow(true)}{" "}
-											{moment(project.createdAt).fromNow() < 0
-												? "from now"
-												: "ago"}
-										</span>
-									</div>
-								</Link>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-									className="w-7 h-7 text-primary "
-								>
-									<path
-										fillRule="evenodd"
-										d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-										clipRule="evenodd"
-									/>
-								</svg>
-							</div>
+					{projects &&
+						projects.map((project) => (
+							<div
+								className="flex flex-col justify-center items-center border border-gray-300 shadow-lg rounded-xl mb-8 py-4"
+								key={project._id}
+							>
+								<div className="flex justify-between items-center px-4 py-2 w-full">
+									<Link
+										to={`/user/profile/${project?.owner}`}
+										className="flex gap-2"
+									>
+										<img
+											src={
+												owners[project?.owner]?.profilePicture
+													? owners[project.owner].profilePicture.includes(
+															"https://storage.googleapis.com"
+													  )
+														? `${owners[project.owner].profilePicture}`
+														: `${baseUrl}/uploads/${
+																owners[project.owner].profilePicture
+														  }`
+													: `/users/${randomImage}`
+											}
+											alt="User"
+											className="h-12 w-12 rounded-full object-cover hover:scale-125"
+										/>
+										<div className="flex flex-col items-start justify-center">
+											<span className="hoverEffectText">
+												{owners[project.owner]
+													? owners[project.owner].username
+													: "Welcome Guest"}
+											</span>
 
-							<>
-								<Post
-									project={project}
-									owner={owners[project.owner]}
-									baseUrl={baseUrl}
-									randomImage={randomImage}
-									dateFormatter={dateFormatter}
-									user={user}
-								/>
-							</>
-						</div>
-					))}
+											<span>
+												{moment(project.createdAt).fromNow(true)}{" "}
+												{moment(project.createdAt).fromNow() < 0
+													? "from now"
+													: "ago"}
+											</span>
+										</div>
+									</Link>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										fill="currentColor"
+										className="w-7 h-7 text-primary "
+									>
+										<path
+											fillRule="evenodd"
+											d="M8.603 3.799A4.49 4.49 0 0112 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 013.498 1.307 4.491 4.491 0 011.307 3.497A4.49 4.49 0 0121.75 12a4.49 4.49 0 01-1.549 3.397 4.491 4.491 0 01-1.307 3.497 4.491 4.491 0 01-3.497 1.307A4.49 4.49 0 0112 21.75a4.49 4.49 0 01-3.397-1.549 4.49 4.49 0 01-3.498-1.306 4.491 4.491 0 01-1.307-3.498A4.49 4.49 0 012.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 011.307-3.497 4.49 4.49 0 013.497-1.307zm7.007 6.387a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+											clipRule="evenodd"
+										/>
+									</svg>
+								</div>
+
+								<>
+									<Post
+										project={project}
+										owner={owners[project.owner]}
+										baseUrl={baseUrl}
+										randomImage={randomImage}
+										dateFormatter={dateFormatter}
+										user={user}
+									/>
+								</>
+							</div>
+						))}
 				</div>
 			)}
 		</div>

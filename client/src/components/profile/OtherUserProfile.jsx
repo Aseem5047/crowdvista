@@ -7,8 +7,8 @@ const OthercurrentUser = ({ id, baseUrl, currentUser }) => {
 	};
 	return (
 		<>
-			<div className="flex gap-4 flex-col lg:flex-row min-w-[18rem] max-w-[70rem] lg:h-[35rem] min-[1550px]:h-full min-[1550px]:max-w-[80rem] rounded-xl w-full h-full items-center justify-center  m-auto lg:mt-10 min-[1550px]:my-auto animate-slide-in-right">
-				<div className="flex justify-center items-center w-full lg:p-8 m-auto relative lg:w-1/2 h-full flex-col ">
+			<div className="flex lg:gap-4 flex-col lg:flex-row min-w-[18rem] h-full max-w-[70rem] lg:mt-4 min-[1550px]:max-w-[80rem] rounded-xl items-center justify-center m-auto min-[1550px]:my-auto animate-slide-in-right">
+				<div className="flex justify-center items-center w-full lg:p-8 m-auto relative lg:w-1/2 h-full lg:h-3/4 flex-col ">
 					<img
 						src={
 							currentUser && currentUser.coverPicture
@@ -20,9 +20,9 @@ const OthercurrentUser = ({ id, baseUrl, currentUser }) => {
 								: "https://source.unsplash.com/1600x900/?nature,technology,cartoon"
 						}
 						alt="Cover Image"
-						className="h-full w-full top-0 left-0 rounded-xl  z-10 object-cover absolute"
+						className="h-full w-full top-0 left-0 lg:rounded-xl z-10 object-cover absolute"
 					/>
-					<div className="z-10 flex flex-col gap-4 items-center justify-center bg-black/60 py-10 px-6 rounded-xl text-white ">
+					<div className="z-10 flex flex-col gap-4 items-center justify-center bg-black/60 py-10 px-6 lg:rounded-xl text-white ">
 						<span className="text-3xl sm:text-5xl font-extrabold mb-4 text-center">
 							Hello Friend
 						</span>
@@ -58,7 +58,7 @@ const OthercurrentUser = ({ id, baseUrl, currentUser }) => {
 					</div>
 				</div>
 
-				<div className="flex flex-col py-4 justify-center items-center w-full lg:w-1/2 h-full flex-grow  bg-gradient-to-r from-[#03a9f4f0] to-blue-600 text-white rounded-lg">
+				<div className="flex flex-col py-4 justify-center items-center w-full lg:w-1/2 h-full lg:h-3/4 flex-grow  bg-gradient-to-r from-[#03a9f4f0] to-blue-600 text-white lg:rounded-lg">
 					<div className="flex flex-col gap-4 items-center justify-center flex-wrap">
 						<img
 							src={
@@ -76,7 +76,7 @@ const OthercurrentUser = ({ id, baseUrl, currentUser }) => {
 							} h-40 w-40 rounded-full object-cover z-10 `}
 						/>
 
-						<div className="flex flex-col gap-4 justify-center items-center bg-black/60 py-10 px-6 rounded-xl text-white ">
+						<div className="flex flex-col gap-4 justify-center items-center bg-black/60 py-10 px-6 lg:rounded-xl text-white ">
 							<div className="flex flex-col justify-center items-center">
 								<span className=" font-medium ">{currentUser?.fullname}</span>
 								<span className=" font-medium ">{currentUser?.email}</span>

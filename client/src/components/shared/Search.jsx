@@ -129,7 +129,7 @@ const Search = ({
 											<div className="flex items-center justify-start gap-2 w-full px-4 mb-2 border-b pb-4">
 												<Link
 													to={`/user/profile/${searchedUser?._id}`}
-													className="hover:scale-110"
+													className="transition-all duration-500 hover:scale-110"
 												>
 													<img
 														src={
@@ -259,7 +259,7 @@ const Search = ({
 					<span className="text-xl">|</span>
 
 					<button
-						className="bg-primary outline-none  rounded-full px-4 py-2 text-white hover:scale-125"
+						className="bg-primary outline-none  rounded-full px-4 py-2 text-white transition-all duration-500 hover:scale-110"
 						onClick={toggleSearchMenu}
 					>
 						{toggleSearch ? (

@@ -113,106 +113,108 @@ const Chat = () => {
 
 	return (
 		<>
-			<div className="relative flex justify-center mt-10 gap-4 flex-wrap">
+			<div className="relative grid xl:grid-cols-2 justify-center mt-10 gap-4 flex-wrap 2xl:flex-nowrap">
 				{/* Left Side */}
-				<div className="flex flex-col gap-4 w-full max-w-[30rem] md:max-w-[20rem] rounded-xl h-fit max-h-[75vh]">
-					<div className="flex flex-col gap-4 bg-gray-100 rounded-xl p-4 h-full min-[1633px]:min-h-[80vh] overflow-x-hidden overflow-y-scroll no-scrollbar">
-						<span className="text-2xl font-semibold ">Accounts</span>
+				<div className="grid sm:grid-cols-2 gap-4">
+					<div className="flex flex-col gap-4 w-full rounded-xl h-fit max-h-[75vh]">
+						<div className="flex flex-col gap-4 bg-gray-100 rounded-xl p-4 h-full min-[1633px]:min-h-[80vh] overflow-x-hidden overflow-y-scroll no-scrollbar">
+							<span className="text-2xl font-semibold ">Accounts</span>
 
-						{/* creating chats with new users */}
-						<div className="flex flex-col gap-6 overflow-auto w-full no-scrollbar">
-							{activeUsers.map((person, index) => (
-								<div
-									className="flex gap-4 justify-between items-center"
-									key={index}
-								>
-									<div className="flex gap-2 items-center">
-										<img
-											className="w-12 h-12 mix-blend-multiply rounded-full bg-gradient-to-r from-blue-600 to-[#03a9f4f0] cursor-pointer object-cover"
-											src={
-												person?.profilePicture
-													? person.profilePicture
-													: `https://source.unsplash.com/1600x900/?nature,technology,cartoon`
-											}
-											alt={person?.fullname}
-										/>
-										<div className="flex flex-col">
-											<span className="text-base font-medium mb-0 text-[#252525] ">
-												{person?.fullname}
-											</span>
-											<span className="text-sm font-base mb-0 text-[#252525] ">
-												@ {person?.username}
-											</span>
-										</div>
-									</div>
-
-									<button
-										type="submit"
-										className="button blueGrad py-2 m-0"
-										onClick={() => newChat(person)}
-									>
-										Chat
-									</button>
-								</div>
-							))}
-							<img
-								src="https://i.pinimg.com/originals/de/d0/bb/ded0bbdd8485e424327257405a86a884.gif"
-								alt=""
-								className="mix-blend-multiply w-full h-auto mt-10"
-							/>
-						</div>
-					</div>
-				</div>
-
-				<div className="flex flex-col gap-4 w-full max-w-[30rem] md:max-w-[20rem] rounded-xl h-fit md:max-h-[75vh]">
-					<div className="flex flex-col gap-4 bg-gray-100 rounded-xl p-4 h-full min-h-fit min-[1633px]:min-h-[80vh] overflow-x-hidden overflow-y-scroll no-scrollbar">
-						{chats.length === 0 ? (
-							<span className="text-2xl font-semibold ">
-								Start Conversation
-							</span>
-						) : (
-							<span className="text-2xl font-semibold ">Chats</span>
-						)}
-
-						<div
-							className={`${
-								chats.length === 0
-									? "my-auto"
-									: "w-full flex flex-col gap-4 flex-1 grow "
-							}`}
-						>
-							{/* displaying existing chats */}
-							{chats.length !== 0 ? (
-								chats?.map((chat, index) => (
+							{/* creating chats with new users */}
+							<div className="flex flex-col gap-6 overflow-auto w-full no-scrollbar">
+								{activeUsers.map((person, index) => (
 									<div
-										onClick={() => {
-											setCurrentChat(chat);
-										}}
+										className="flex gap-4 justify-between items-center"
 										key={index}
 									>
-										<Conversation
-											key={chat._id}
-											data={chat}
-											everyChat={chats}
-											currentUser={user._id}
-											online={checkOnlineStatus(chat)}
-										/>
+										<div className="flex gap-2 items-center">
+											<img
+												className="w-12 h-12 mix-blend-multiply rounded-full bg-gradient-to-r from-blue-600 to-[#03a9f4f0] cursor-pointer object-cover"
+												src={
+													person?.profilePicture
+														? person.profilePicture
+														: `https://source.unsplash.com/1600x900/?nature,technology,cartoon`
+												}
+												alt={person?.fullname}
+											/>
+											<div className="flex flex-col">
+												<span className="text-base font-medium mb-0 text-[#252525] ">
+													{person?.fullname}
+												</span>
+												<span className="text-sm font-base mb-0 text-[#252525] ">
+													@ {person?.username}
+												</span>
+											</div>
+										</div>
+
+										<button
+											type="submit"
+											className="button blueGrad py-2 m-0"
+											onClick={() => newChat(person)}
+										>
+											Chat
+										</button>
 									</div>
-								))
-							) : (
+								))}
 								<img
-									src="https://cdn.dribbble.com/users/172747/screenshots/3135893/peas-nochats.gif"
+									src="https://i.pinimg.com/originals/de/d0/bb/ded0bbdd8485e424327257405a86a884.gif"
 									alt=""
-									className="mix-blend-multiply w-full h-auto"
+									className="mix-blend-multiply w-full h-auto mt-10"
 								/>
+							</div>
+						</div>
+					</div>
+
+					<div className="flex flex-col gap-4 w-full  rounded-xl h-fit md:max-h-[75vh]">
+						<div className="flex flex-col gap-4 bg-gray-100 rounded-xl p-4 h-full min-h-fit min-[1633px]:min-h-[80vh] overflow-x-hidden overflow-y-scroll no-scrollbar">
+							{chats.length === 0 ? (
+								<span className="text-2xl font-semibold ">
+									Start Conversation
+								</span>
+							) : (
+								<span className="text-2xl font-semibold ">Chats</span>
 							)}
+
+							<div
+								className={`${
+									chats.length === 0
+										? "my-auto"
+										: "w-full flex flex-col gap-4 flex-1 grow "
+								}`}
+							>
+								{/* displaying existing chats */}
+								{chats.length !== 0 ? (
+									chats?.map((chat, index) => (
+										<div
+											onClick={() => {
+												setCurrentChat(chat);
+											}}
+											key={index}
+										>
+											<Conversation
+												key={chat._id}
+												data={chat}
+												everyChat={chats}
+												currentUser={user._id}
+												online={checkOnlineStatus(chat)}
+											/>
+										</div>
+									))
+								) : (
+									<img
+										src="https://cdn.dribbble.com/users/172747/screenshots/3135893/peas-nochats.gif"
+										alt=""
+										className="mix-blend-multiply w-full h-auto"
+									/>
+								)}
+							</div>
 						</div>
 					</div>
 				</div>
 
 				{/* Right Side */}
 
-				<div className="flex flex-col gap-4 w-full sm:w-[85%] 2xl:max-w-[50rem] mb-4">
+				<div className="flex flex-col gap-4 w-full mb-4">
 					<ChatBox
 						chat={currentChat}
 						currentUser={user._id}

@@ -21,8 +21,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Chat from "./pages/Chat";
 
 function App() {
-	// axios.defaults.baseURL = "https://crowdvistaback.vercel.app/";
-	axios.defaults.baseURL = "http://127.0.0.1:5000";
+	axios.defaults.baseURL = "https://crowdvistaback.vercel.app/";
+	// axios.defaults.baseURL = "http://127.0.0.1:5000";
 	axios.defaults.withCredentials = true;
 	const dispatch = useDispatch();
 	const { user, ready } = useSelector((state) => state.auth);
@@ -82,7 +82,7 @@ function App() {
 			) : (
 				<div className="flex flex-col items-center w-full h-screen lg:px-[80px] ">
 					<Navbar />
-					<div className="py-4 mt-16 w-full h-full">
+					<div className="lg:py-4 mt-16 w-full h-full">
 						<Routes>
 							{/* Homepage */}
 							<Route index element={<HomePage />} />

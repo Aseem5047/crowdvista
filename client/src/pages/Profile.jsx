@@ -36,10 +36,10 @@ const Profile = () => {
 			{user && user?._id === id ? (
 				<div className="flex flex-col gap-4 justify-center items-center mt-[3rem]">
 					<AccountNav subpage={subpage} id={id} />
-					<div className="flex flex-col items-center justify-center gap-4 pb-4 w-full mb-[1rem] md:mb-auto">
+					<div className="flex flex-col items-center justify-center gap-4 w-full">
 						{subpage === "profile" ||
 							(subpage === undefined && (
-								<div className="flex flex-col w-full lg:w-[60%] items-center justify-center gap-4 pb-6 mt-16 lg:mt-8">
+								<div className="flex flex-col w-full lg:w-[60%] items-center justify-center gap-4  mt-7 lg:mt-8">
 									{/* <AboutUser userProfile={userProfile} baseUrl={baseUrl} /> */}
 									<UserProfile userProfile={userProfile} baseUrl={baseUrl} />
 								</div>
