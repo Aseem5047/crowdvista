@@ -11,7 +11,7 @@ import People from "../components/shared/People";
 
 const HomePage = () => {
 	const [projects, setProjects] = useState([]);
-
+	const [followingStatusChanged, setFollowingStatusChanged] = useState(false);
 	const [owners, setOwners] = useState({}); // State to store owner data
 	const baseUrl = "http://localhost:5000";
 
@@ -43,7 +43,7 @@ const HomePage = () => {
 					? toast.error("Post Something or Follow others")
 					: console.log("Error Fetching Projects")
 			);
-	}, [user]);
+	}, [user, followingStatusChanged]);
 
 	const getUserField = async (userId) => {
 		try {
@@ -124,7 +124,7 @@ const HomePage = () => {
 		<div className="flex flex-col-reverse items-center justify-center lg:items-start lg:flex-row-reverse lg:justify-between relative gap-4 min-[1550px]:px-0">
 			{user && (
 				<div className="flex flex-col items-start justify-start gap-4 flex-1 sticky top-28 mt-10 pb-4 h-[66vh] min-w-[20rem] max-w-[30rem] w-full">
-					<People />
+					<People setFollowingStatusChanged={setFollowingStatusChanged} />
 					{/* Footer */}
 					<div className="flex flex-col items-start justify-center w-full gap-4 mt-2">
 						<ul className="flex flex-wrap items-center justify-start w-full gap-3 cursor-pointer text-gray-300">

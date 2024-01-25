@@ -4,7 +4,13 @@ import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-const ProfileCard = ({ user, randomImage, baseUrl, currentUser }) => {
+const ProfileCard = ({
+	user,
+	randomImage,
+	baseUrl,
+	currentUser,
+	setFollowingStatusChanged,
+}) => {
 	const [following, setFollowing] = useState(
 		currentUser.following.includes(user._id)
 	);
@@ -22,9 +28,11 @@ const ProfileCard = ({ user, randomImage, baseUrl, currentUser }) => {
 				if (following) {
 					toast.success(`${user?.username} Unfollowed`);
 					setFollowing((prev) => !prev);
+					setFollowingStatusChanged((prev) => !prev);
 				} else {
 					toast.success(`Following ${user?.username}`);
 					setFollowing((prev) => !prev);
+					setFollowingStatusChanged((prev) => !prev);
 				}
 			})
 			.catch((error) => {

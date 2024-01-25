@@ -5,7 +5,7 @@ import { getUser } from "../../lib/authSlice";
 import { Link } from "react-router-dom";
 import ProfileCard from "../profile/ProfileCard";
 
-const People = () => {
+const People = ({ setFollowingStatusChanged }) => {
 	const currentUser = useSelector(getUser);
 	const [users, setUsers] = useState([]);
 	const baseUrl = "http://localhost:5000/uploads";
@@ -102,6 +102,7 @@ const People = () => {
 								randomImage={randomImage}
 								baseUrl={baseUrl}
 								currentUser={currentUser}
+								setFollowingStatusChanged={setFollowingStatusChanged}
 							/>
 						)
 				)}
