@@ -8,6 +8,7 @@ import moment from "moment";
 import Post from "../components/post/Post";
 import { useSelector } from "react-redux";
 import People from "../components/shared/People";
+import PostLoading from "../components/post/PostLoading";
 
 const HomePage = () => {
 	const [projects, setProjects] = useState([]);
@@ -85,41 +86,7 @@ const HomePage = () => {
 	// console.log(owners);
 
 	return !ready ? (
-		<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 items-center w-full  m-auto pb-4 px-10 lg:px-4 h-full">
-			{projects.map((project) => (
-				<div
-					className="border border-gray-300 shadow rounded-md p-4 max-w-sm lg:max-w-md w-full mx-auto h-[30rem] "
-					key={project._id}
-				>
-					<div className="animate-pulse flex space-x-4">
-						<div className="rounded-full bg-gray-300 h-10 w-10"></div>
-						<div className="flex-1 space-y-6 py-1">
-							<div className="h-2 bg-gray-300 rounded"></div>
-							<div className="space-y-3">
-								<div className="grid grid-cols-3 gap-4">
-									<div className="h-2 bg-gray-300 rounded col-span-2"></div>
-									<div className="h-2 bg-gray-300 rounded col-span-1"></div>
-								</div>
-								<div className="h-2 bg-gray-300 rounded"></div>
-							</div>
-						</div>
-					</div>
-					<div className="animate-pulse w-full h-[15rem] bg-gray-300 my-6" />
-					<div className="animate-pulse flex space-x-4">
-						<div className="flex-1 space-y-6 py-1">
-							<div className="h-2 bg-gray-300 rounded"></div>
-							<div className="space-y-3">
-								<div className="grid grid-cols-3 gap-4">
-									<div className="h-2 bg-gray-300 rounded col-span-2"></div>
-									<div className="h-2 bg-gray-300 rounded col-span-1"></div>
-								</div>
-								<div className="h-2 bg-gray-300 rounded"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			))}
-		</div>
+		<PostLoading projects={projects} />
 	) : (
 		<div className="flex flex-col-reverse items-center justify-center lg:items-start lg:flex-row-reverse lg:justify-between relative gap-4 min-[1550px]:px-0">
 			{user && (
@@ -191,7 +158,7 @@ const HomePage = () => {
 					className={`${
 						projects.length === 1
 							? "flex flex-col-reverse 2xl:grid 2xl:grid-cols-2 gap-4 pb-10 justify-center items-center m-auto w-full mt-10 md:px-10"
-							: `grid grid-cols-1 md:grid-cols-2 gap-4 items-center ${
+							: `grid grid-cols-1 2xl:grid-cols-2 gap-4 items-center ${
 									user && `lg:w-3/4`
 							  } w-full h-fit m-auto mt-10 pb-4 md:px-10 lg:px-4 min-[1580px]:flex-1`
 					}`}

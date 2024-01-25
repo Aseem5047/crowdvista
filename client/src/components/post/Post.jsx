@@ -66,7 +66,7 @@ const Post = ({
 			>
 				{project.photos && (
 					<img
-						className=" object-cover w-4/5 m-auto md:w-full md:h-full aspect-square rounded-xl"
+						className=" object-cover w-4/5 m-auto md:w-full md:h-full aspect-square md:aspect-video 2xl:aspect-square rounded-xl"
 						src={
 							(project?.photos?.[0]?.includes(
 								"https://storage.googleapis.com"
@@ -218,7 +218,7 @@ const Post = ({
 				<h2
 					className={`text-base text-ellipsis ${
 						!expand ? "whitespace-nowrap w-[20rem] lg:w-[27rem]" : "w-full"
-					}  overflow-hidden  cursor-pointer`}
+					}  overflow-hidden cursor-pointer`}
 					onClick={() => setExpand(!expand)}
 				>
 					<span className="">

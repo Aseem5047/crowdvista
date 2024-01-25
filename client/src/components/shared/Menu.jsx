@@ -101,7 +101,7 @@ const Menu = ({
 					viewBox="0 0 24 24"
 					strokeWidth={1.5}
 					stroke="currentColor"
-					className="w-5 h-5 hidden md:block"
+					className="w-5 h-5 hidden lg:block"
 				>
 					<path
 						strokeLinecap="round"
@@ -110,13 +110,13 @@ const Menu = ({
 					/>
 				</svg>
 				<div
-					className="hoverEffectText hidden md:block"
+					className="hoverEffectText hidden lg:block"
 					onClick={() => changeLanguage("fr")}
 				>
 					Fr
 				</div>
 				<div
-					className="hoverEffectText hidden md:block"
+					className="hoverEffectText hidden lg:block"
 					onClick={() => changeLanguage("en")}
 				>
 					Eng

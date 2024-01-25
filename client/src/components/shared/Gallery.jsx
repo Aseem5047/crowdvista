@@ -160,29 +160,28 @@ const Gallery = ({
 			) : (
 				<>
 					<div className="relative min-h-[15rem]">
-						<div className="grid gap-2 grid-cols-[2fr_1fr] min-h-[20rem]">
-							<div className="">
-								{project?.photos && project.photos[0] ? (
-									<img
-										onClick={() => setShowAllPhotos(true)}
-										src={
-											project?.photos[0].includes(
-												"https://storage.googleapis.com"
-											)
-												? `${project?.photos[0]}`
-												: `${baseUrl}/${project?.photos[0]}`
-										}
-										alt=""
-										className="aspect-video h-full max-h-[40rem] object-cover rounded-xl cursor-pointer"
-									/>
-								) : (
-									<img
-										src="https://source.unsplash.com/1600x900/?nature,technology, cartoon"
-										alt=""
-										className="aspect-video object-cover  h-full w-full relative top-2 rounded-xl cursor-pointer"
-									/>
-								)}
-							</div>
+						<div className="grid gap-2 grid-cols-[2fr_1fr] min-h-[20rem] w-full">
+							{project?.photos && project.photos[0] ? (
+								<img
+									onClick={() => setShowAllPhotos(true)}
+									src={
+										project?.photos[0].includes(
+											"https://storage.googleapis.com"
+										)
+											? `${project?.photos[0]}`
+											: `${baseUrl}/${project?.photos[0]}`
+									}
+									alt=""
+									className="aspect-video h-full object-cover rounded-xl cursor-pointer"
+								/>
+							) : (
+								<img
+									src="https://source.unsplash.com/1600x900/?nature,technology, cartoon"
+									alt=""
+									className="aspect-video object-cover  h-full w-full relative top-2 rounded-xl cursor-pointer"
+								/>
+							)}
+
 							<div className="grid">
 								{project?.photos && project.photos[1] ? (
 									<img
@@ -250,7 +249,7 @@ const Gallery = ({
 							</svg>
 						</button>
 					</div>
-					<div className="grid md:grid-cols-2 pb-4 md:pb-0 gap-8 md:gap-0">
+					<div className="grid grid-cols-1 md:grid-cols-2 pb-4 md:pb-0 gap-8 md:gap-0">
 						<div className="flex flex-col items-start justify-start md:px-8 py-2 w-full h-full mt-0 md:mt-4 gap-4 relative order-2 md:order-1">
 							<CommentSection
 								owner={owner}
@@ -272,7 +271,7 @@ const Gallery = ({
 								<span>{project.extraInfo}</span>
 							</div>
 
-							<div className="flex flex-wrap gap-4 justify-between items-start w-full mt-7">
+							<div className="flex flex-wrap gap-7 justify-start items-start w-full mt-7">
 								<Link
 									to={`/user/profile/${project?.owner}`}
 									className="flex gap-2"

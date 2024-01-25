@@ -31,6 +31,7 @@ export default {
       },
       screens: {
         xs: "450px",
+        "3xl": "1656px",
       },
       fontFamily: {
         family: "Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif"

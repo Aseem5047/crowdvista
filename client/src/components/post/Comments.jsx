@@ -22,7 +22,7 @@ const Comments = ({ comments, postOwner, baseUrl, commentsRef }) => {
 	return (
 		<>
 			<div
-				className="overflow-y-scroll changeScrollbar h-[24rem] w-full flex flex-col justify-start items-start gap-4 pt-4"
+				className="overflow-y-scroll changeScrollbar h-[24rem] w-full flex flex-col justify-start items-start gap-7 pt-4"
 				id="comments__"
 			>
 				{comments?.map((c, i) => (
@@ -45,7 +45,7 @@ const Comments = ({ comments, postOwner, baseUrl, commentsRef }) => {
 								className="h-12 w-12 rounded-full object-cover hover:opacity-75"
 							/>
 						</Link>
-						<div className="flex flex-col min-w-[7.5rem]">
+						<div className="flex flex-col justify-center min-w-[7.5rem]">
 							<strong style={{ fontSize: "0.9rem" }}>
 								{c?.split(": ")[1]}
 							</strong>
@@ -53,10 +53,7 @@ const Comments = ({ comments, postOwner, baseUrl, commentsRef }) => {
 								{moment(c?.split(": ")[2]).fromNow()}
 							</span>
 						</div>
-						<span
-							className="font-normal px-2 text-[16px] text-left "
-							style={{ overflowWrap: "break-word" }}
-						>
+						<span className="font-normal px-2 text-[16px] text-left break-words w-[97%] max-h-[10rem] overflow-x-hidden overflow-y-scroll no-scrollbar">
 							{c?.split(": ")[3]}
 						</span>
 						<div ref={commentsRef}></div>
