@@ -97,19 +97,34 @@ const Footer = () => {
 				</button>
 
 				<div className=" hidden md:flex items-center justify-center gap-5">
-					<Link to={"/"} className="hover:scale-125 text-sm">
+					<Link
+						to={"/"}
+						className="transition-all duration-500 hover:scale-110 text-sm"
+					>
 						Privacy
 					</Link>
-					<Link to={"/"} className="hover:scale-125 text-sm">
+					<Link
+						to={"/"}
+						className="transition-all duration-500 hover:scale-110 text-sm"
+					>
 						Terms
 					</Link>
-					<Link to={"/"} className="hover:scale-125 text-sm">
+					<Link
+						to={"/"}
+						className="transition-all duration-500 hover:scale-110 text-sm"
+					>
 						Sitemap
 					</Link>
-					<Link to={"/"} className="hover:scale-125 text-sm">
+					<Link
+						to={"/"}
+						className="transition-all duration-500 hover:scale-110 text-sm"
+					>
 						Company Details
 					</Link>
-					<Link to={"/"} className="hover:scale-125 text-sm">
+					<Link
+						to={"/"}
+						className="transition-all duration-500 hover:scale-110 text-sm"
+					>
 						Destinations
 					</Link>
 				</div>
@@ -118,7 +133,7 @@ const Footer = () => {
 			{/* Right Section */}
 
 			<div className="hidden lg:flex items-center gap-4">
-				<div className="hidden md:flex items-center justify-center gap-2 hover:scale-125">
+				<div className="hidden md:flex items-center justify-center gap-2 transition-all duration-500 hover:scale-110">
 					<span className="cursor-pointer text-sm">Language</span>
 					<button>
 						<svg
@@ -137,7 +152,7 @@ const Footer = () => {
 						</svg>
 					</button>
 				</div>
-				<div className="hidden md:flex items-center justify-center gap-2 hover:scale-125">
+				<div className="hidden md:flex items-center justify-center gap-2 transition-all duration-500 hover:scale-110">
 					<span className="cursor-pointer text-sm">Support & Help</span>
 					<button>
 						<svg
