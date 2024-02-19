@@ -8,7 +8,7 @@ const OthercurrentUser = ({ id, baseUrl, currentUser }) => {
 	return (
 		<>
 			<div className="flex lg:gap-4 flex-col lg:flex-row min-w-[18rem] h-full max-w-[70rem] lg:mt-4 min-[1550px]:max-w-[80rem] rounded-xl items-center justify-center m-auto min-[1550px]:my-auto animate-slide-in-right">
-				<div className="flex justify-center items-center w-full lg:p-8 m-auto relative lg:w-1/2 h-full lg:h-3/4 flex-col ">
+				<div className="flex justify-center items-center w-full lg:p-8 m-auto relative lg:w-1/2 h-full lg:h-[88%] flex-col ">
 					<img
 						src={
 							currentUser && currentUser.coverPicture
@@ -58,7 +58,7 @@ const OthercurrentUser = ({ id, baseUrl, currentUser }) => {
 					</div>
 				</div>
 
-				<div className="flex flex-col py-4 justify-center items-center w-full lg:w-1/2 h-full lg:h-3/4 flex-grow  bg-gradient-to-r from-[#03a9f4f0] to-blue-600 text-white lg:rounded-lg">
+				<div className="flex flex-col py-4 justify-center items-center w-full lg:w-1/2 h-full lg:h-[88%] flex-grow  bg-gradient-to-r from-[#03a9f4f0] to-blue-600 text-white lg:rounded-lg">
 					<div className="flex flex-col gap-4 items-center justify-center flex-wrap">
 						<img
 							src={

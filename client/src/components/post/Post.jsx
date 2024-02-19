@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import ShareDialog from "../shared/ShareDialog";
 
 const Post = ({
 	project,
@@ -57,6 +58,30 @@ const Post = ({
 		}
 	};
 
+	// const handleShare = async (title, text, url, imageUrls) => {
+	// 	try {
+	// 		const files = await Promise.all(
+	// 			imageUrls.map(async (imageUrl) => {
+	// 				const response = await fetch(imageUrl);
+	// 				const blob = await response.blob();
+	// 				return new File([blob], "image.png", { type: "image/png" });
+	// 			})
+	// 		);
+
+	// 		await navigator.share({
+	// 			title,
+	// 			text,
+	// 			url,
+	// 			files,
+	// 		});
+	// 		console.log("Successfully shared");
+	// 	} catch (error) {
+	// 		console.error("Error sharing:", error);
+	// 	}
+	// };
+
+	// console.log(project);
+
 	return (
 		<div className="mt-2">
 			<Link
@@ -80,7 +105,7 @@ const Post = ({
 			</Link>
 
 			<div className="flex items-center justify-between px-4 mt-4">
-				<div className="flex gap-4">
+				<div className="flex items-center gap-4">
 					{/* Like Icon */}
 					{!liked ? (
 						<svg
@@ -109,7 +134,6 @@ const Post = ({
 							<path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
 						</svg>
 					)}
-
 					{/* Comment Icon */}
 					{user?._id !== owner?._id && (
 						<Link to={"/chat"}>
@@ -129,22 +153,14 @@ const Post = ({
 							</svg>
 						</Link>
 					)}
-
 					{/* Share Icon */}
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						strokeWidth={1.5}
-						stroke="currentColor"
-						className="w-6 h-6 hover:text-primary cursor-pointer"
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-						/>
-					</svg>
+					<ShareDialog
+						title={project.title}
+						text="We Appreciate Your Time & Thoughts "
+						url={`https://crowdvista.vercel.app/projects/${project._id}`}
+						imageUrls={project.photos}
+						description={project.description}
+					/>
 				</div>
 
 				{/* Save Icon */}

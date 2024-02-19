@@ -70,12 +70,6 @@ const ProfileCard = ({
 			</div>
 
 			<div className="flex w-full gap-2 grow">
-				{/* <Link
-					to={`/user/profile/${user._id}`}
-					className="button rounded-lg  m-auto blueGrad p-2 text-center w-full cursor-pointer"
-				>
-					Profile
-				</Link> */}
 				<button
 					className="button rounded-lg flex items-center gap-2 m-auto blueGrad p-2 text-center w-full cursor-pointer"
 					onClick={handleFollow}

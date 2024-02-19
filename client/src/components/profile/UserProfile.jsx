@@ -11,21 +11,29 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 	const { id } = useParams();
 
 	const [allUsers, setAllUsers] = useState([]);
-	const [projects, setProjects] = useState([]);
+	const [allProjects, setAllProjects] = useState([]);
 
 	useEffect(() => {
-		axios.get("/projects/userProjects").then(({ data }) => setProjects(data));
+		axios.get("/projects").then(({ data }) => setAllProjects(data));
 	}, []);
 
 	useEffect(() => {
 		axios.get("/user/").then(({ data }) => setAllUsers(data));
 	}, []);
 
-	const filteredUsers = allUsers.filter((allUser) =>
-		user.following.includes(allUser._id)
+	const usersFollowing = allUsers.filter((allUser) =>
+		user?.following?.includes(allUser?._id)
 	);
 
-	// console.log(filteredUsers);
+	const usersFollowed = allUsers.filter((allUser) =>
+		user?.followed?.includes(allUser?._id)
+	);
+
+	const likedProjects = allProjects.filter((project) =>
+		project.likes.includes(user._id)
+	);
+
+	console.log(likedProjects);
 
 	return (
 		<div className="w-full flex flex-col gap-7 items-center justify-center -mb-3 md:mb-auto">
@@ -58,7 +66,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 				/>
 				<Cursor cursorColor="#F7AB0A" />
 			</h1>
-			<div className="grid grid-cols-1 md:grid-cols-2 w-3/4 lg:w-fit gap-7 items-center justify-center px-4">
+			<div className="grid grid-cols-1 md:grid-cols-2 w-3/4 lg:w-fit gap-7 items-start justify-center px-4">
 				<div className="flex flex-col justify-center items-start w-full gap-4">
 					<div className="flex gap-4 justify-center items-start">
 						<div className="flex flex-col justify-center items-start">
@@ -116,10 +124,10 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 					</div>
 
 					<div className="flex flex-col justify-center items-start">
-						<span className=" font-medium text-xl">Projects</span>
+						<span className=" font-medium text-xl">Liked Projects</span>
 						<span className="flex gap-2 items-center w-full flex-wrap">
-							{projects.length > 0 ? (
-								projects.map((project) => (
+							{likedProjects?.length > 0 ? (
+								likedProjects.map((project) => (
 									<Link to={`/projects/${project?._id}`} key={project?._id}>
 										<img
 											src={
@@ -130,7 +138,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 													: `${baseUrl}/uploads/${project?.photos[0]}`
 											}
 											alt=""
-											className="h-16 w-16 rounded-xl mt-2 hover:scale-110"
+											className="h-16 w-16 rounded-xl mt-2 hover:scale-110 object-cover"
 										/>
 									</Link>
 								))
@@ -149,9 +157,9 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 
 				{/* other details */}
 				<div className="flex flex-1 flex-col gap-4 w-full h-full items-start justify-start">
-					<div className="flex flex-col items-start justify-center gap-7">
-						<div className="flex flex-col gap-2 justify-start items-start">
-							<div className="flex flex-col">
+					<div className="flex flex-col items-start justify-center gap-7 w-full">
+						<div className="flex flex-col gap-2 justify-start items-start w-full">
+							<div className="flex flex-col justify-center w-full">
 								<span className="font-medium text-xl">Details</span>
 								<span className="text-base w-full lg:max-w-sm overflow-y-scroll no-scrollbar max-h-32 py-2">
 									{userProfile?.about}
@@ -160,6 +168,64 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 									<span className="font-bold text-primary">Works At</span>{" "}
 									{userProfile?.worksAt}{" "}
 								</span>
+								<div className="flex flex-col items-start justify-center w-full mt-4 gap-4">
+									<p className="flex items-center justify-center gap-2">
+										<span className="font-bold text-primary">Following</span>{" "}
+										<div className="flex items-center justify-center gap-2  flex-wrap">
+											{usersFollowing.length > 0 ? (
+												usersFollowing.map((user) => (
+													<Link
+														to={`/user/profile/${user?._id}`}
+														className="flex items-center  hover:scale-110"
+														key={user?._id}
+													>
+														<img
+															src={
+																user?.profilePicture
+																	? user?.profilePicture
+																	: `https://source.unsplash.com/1600x900/?nature,technology,cartoon`
+															}
+															alt="Profile Image"
+															className={`${
+																user ? "rounded-full" : "rounded-2xl"
+															} h-10 w-10 rounded-xl md:rounded-full object-cover z-10 `}
+														/>
+													</Link>
+												))
+											) : (
+												<span className="text-sm">No User Found</span>
+											)}
+										</div>
+									</p>
+									<p className="flex items-center justify-center gap-2">
+										<span className="font-bold text-primary">Followers</span>{" "}
+										<div className="flex items-ceter justify-center gap-2  flex-wrap">
+											{usersFollowed.length > 0 ? (
+												usersFollowed.map((user) => (
+													<Link
+														to={`/user/profile/${user?._id}`}
+														className="flex items-center hover:scale-110"
+														key={user?._id}
+													>
+														<img
+															src={
+																user && user?.profilePicture
+																	? user?.profilePicture
+																	: `https://source.unsplash.com/1600x900/?nature,technology,cartoon`
+															}
+															alt="Profile Image"
+															className={`${
+																user ? "rounded-full" : "rounded-2xl"
+															} h-10 w-10 rounded-xl md:rounded-full object-cover z-10 `}
+														/>
+													</Link>
+												))
+											) : (
+												<span className="text-sm">Start Following Others</span>
+											)}
+										</div>
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -182,7 +248,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 								to={`/user/profile/${user._id}/project/new`}
 								className="button py-2 px-4 blueGrad cursor-pointer m-0"
 							>
-								Create Project
+								Create <span className="hidden md:block ml-1">Project</span>
 							</Link>
 						) : (
 							<Link
@@ -196,7 +262,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 				</div>
 			</div>
 
-			<div className="flex justify-center items-center w-full lg:p-8  relative h-full flex-col grow">
+			<div className="flex justify-center items-center w-full lg:p-8 relative h-full flex-col grow mb-4">
 				<img
 					src={
 						user && user.coverPicture

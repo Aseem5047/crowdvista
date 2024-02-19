@@ -12,7 +12,6 @@ import {
 } from "../../lib/authSlice";
 
 const Success = () => {
-	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const user = useSelector(getUser);
 	const currentFunding = useSelector(getCurrentFunding);

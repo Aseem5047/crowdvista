@@ -31,7 +31,17 @@ const Gallery = ({
 	const [showFunds, setShowFunds] = useState(false);
 	const [addedFunds, setAddedFunds] = useState(0);
 	const [totalFunds, setTotalFunds] = useState(0);
-	const { id } = useParams();
+	const [allUsers, setAllUsers] = useState([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await axios.get("/user");
+			const data = response.data;
+			setAllUsers(data);
+		};
+
+		fetchData();
+	}, [project]);
 
 	useMemo(() => {
 		setTotalFunds(
@@ -108,8 +118,10 @@ const Gallery = ({
 		randomImage = storedImage;
 	}
 
-	console.log(project);
-
+	let usersThatFunded = allUsers.filter((user) =>
+		project?.fundedBy?.includes(user._id)
+	);
+	console.log(usersThatFunded);
 	return (
 		<div className=" bg-gray-100 py-8 px-4  rounded-2xl my-auto">
 			{showAllPhotos ? (
@@ -176,7 +188,7 @@ const Gallery = ({
 								/>
 							) : (
 								<img
-									src="https://source.unsplash.com/1600x900/?nature,technology, cartoon"
+									src="https://source.unsplash.com/1600x900/?nature,technology,cartoon"
 									alt=""
 									className="aspect-video object-cover  h-full w-full relative top-2 rounded-xl cursor-pointer"
 								/>
@@ -198,7 +210,7 @@ const Gallery = ({
 									/>
 								) : (
 									<img
-										src="https://source.unsplash.com/1600x900/?nature,technology, cartoon"
+										src="https://source.unsplash.com/1600x900/?nature,technology,cartoon"
 										alt=""
 										className="aspect-video object-cover  h-full w-full relative top-2 rounded-xl cursor-pointer"
 									/>
@@ -219,7 +231,7 @@ const Gallery = ({
 										/>
 									) : (
 										<img
-											src="https://source.unsplash.com/1600x900/?nature,technology, cartoon"
+											src="https://source.unsplash.com/1600x900/?nature,technology,cartoon"
 											alt=""
 											className="aspect-video object-cover  h-full w-full relative top-2 rounded-xl cursor-pointer"
 										/>
@@ -287,7 +299,7 @@ const Gallery = ({
 												: `/users/${randomImage}`
 										}
 										alt="Profile"
-										className="h-12 w-12 rounded-full object-cover hover:scale-125"
+										className="h-12 w-12 rounded-full object-cover hover:scale-110"
 									/>
 
 									<div className="flex flex-col items-start justify-center">
@@ -340,6 +352,28 @@ const Gallery = ({
 									</span>
 								))}
 							</span>
+							<div className="flex gap-4 items-center justify-start mt-4">
+								<span className="text-primary text-xl font-semibold">
+									Project Backers
+								</span>
+								<div className="flex items-center gap-2">
+									{usersThatFunded.length > 0 ? (
+										usersThatFunded.map((user) => (
+											<Link to={`/user/profile/${user?._id}`} key={user?._id}>
+												<img
+													src={user?.profilePicture}
+													alt=""
+													className="h-12 w-12 rounded-full hover:scale-110 object-cover"
+												/>
+											</Link>
+										))
+									) : (
+										<span className="text-sm flex-1 text-center h-full">
+											No User Backed This Project
+										</span>
+									)}
+								</div>
+							</div>
 						</div>
 					</div>
 
