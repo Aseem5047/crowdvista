@@ -221,7 +221,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 													</Link>
 												))
 											) : (
-												<span className="text-sm">Start Following Others</span>
+												<span className="text-sm">Users Not Found</span>
 											)}
 										</div>
 									</p>
