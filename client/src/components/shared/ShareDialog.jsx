@@ -22,7 +22,7 @@ const ShareDialog = ({ title, text, url, imageUrls, description }) => {
 				/>
 			</svg>
 			{toggleDialog && (
-				<div className="w-screen h-screen fixed bottom-0 left-0 pt-2 text-white bg-black/60 z-40">
+				<div className="w-screen h-screen fixed bottom-0 left-0 pt-2 text-white bg-black/80 z-40">
 					<div className="relative flex flex-col gap-7 w-full h-full py-7 px-10">
 						{/* close button */}
 						<button
@@ -66,7 +66,7 @@ const ShareDialog = ({ title, text, url, imageUrls, description }) => {
 										className="aspect-video h-full object-cover rounded-xl"
 									/>
 									{/* other info */}
-									<div className="flex flex-col justify-between gap-4 bg-black/60 w-full px-7 py-4 rounded-xl">
+									<div className="flex flex-col justify-between gap-4 bg-black/70 w-full px-7 py-4 rounded-xl">
 										<div className="flex flex-col w-full">
 											{/* title */}
 											<span className="text-3xl">{title}</span>
