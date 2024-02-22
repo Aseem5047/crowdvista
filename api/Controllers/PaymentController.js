@@ -5,7 +5,6 @@ const stripe = new Stripe("sk_test_51JovZySDBS9sTKNkPxVUAeBqLYkorrXjsoM6htb7HEGA
 const handler = async (req, res) => {
     if (req.method === 'POST') {
         try {
-            // console.log("Body ", req.body);
             const params = {
                 submit_type: 'pay',
                 mode: 'payment',
@@ -19,8 +18,8 @@ const handler = async (req, res) => {
                     { shipping_rate: 'shr_1L0P16SDBS9sTKNkNdraQIII' },
                 ],
                 line_items: req.body.map((item) => {
-                    const img1 = item.photos[0] ? item.photos[0] : `https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg`;
-                    const img2 = item.photos[1] ? item.photos[1] : `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4xE7JHqPWGILonrHa4zBgCo9ifY3jgIdmxv__hyoA_4m8dcqwVL7oG5Zv2o3R8-xVvOE&usqp=CAU`;
+                    const img1 = item?.photos[0] || `https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg`;
+                    const img2 = item?.photos[1] || `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4xE7JHqPWGILonrHa4zBgCo9ifY3jgIdmxv__hyoA_4m8dcqwVL7oG5Zv2o3R8-xVvOE&usqp=CAU`;
                     // const img1 = `https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-88wkdmjrorckekha.jpg`;
                     // const img2 = `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4xE7JHqPWGILonrHa4zBgCo9ifY3jgIdmxv__hyoA_4m8dcqwVL7oG5Zv2o3R8-xVvOE&usqp=CAU`;
 

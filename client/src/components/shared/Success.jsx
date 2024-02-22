@@ -30,7 +30,7 @@ const Success = () => {
 				.put("/projects/updateFunds", {
 					projectId: CurrentFundedProject,
 					addedFunds: currentFunding,
-					fundedBy: user._id,
+					fundedBy: user?._id,
 				})
 				.then((response) => {
 					toast.success("Data Edited Successfully");
@@ -45,7 +45,7 @@ const Success = () => {
 	};
 
 	useEffect(() => {
-		localStorage.clear();
+		// localStorage.clear();
 		runFireworks();
 	}, []);
 

@@ -66,13 +66,13 @@ const Gallery = ({
 
 	const handleCheckout = async () => {
 		const stripe = await getStripe();
-
 		try {
+			const value = parseInt(addedFunds)
 			const response = await axios.post("/payment/checkout", [
 				{
 					title: project.title,
-					recievedFunds: addedFunds,
-					// photos: project.photos,
+					recievedFunds: value,
+					photos: project.photos,
 					// Add more items if needed
 				},
 			]);
@@ -99,6 +99,7 @@ const Gallery = ({
 	};
 
 	const handleFunds = (value, name) => {
+		// console.log(value);
 		setAddedFunds(value);
 	};
 
@@ -121,7 +122,7 @@ const Gallery = ({
 	let usersThatFunded = allUsers.filter((user) =>
 		project?.fundedBy?.includes(user._id)
 	);
-	console.log(usersThatFunded);
+
 	return (
 		<div className=" bg-gray-100 py-8 px-4  rounded-2xl my-auto">
 			{showAllPhotos ? (
