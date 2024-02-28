@@ -19,9 +19,11 @@ import {
 import { fetchUser } from "./store/authMiddleware";
 import { useDispatch, useSelector } from "react-redux";
 import Chat from "./pages/Chat";
+import Banner from "./pages/Banner";
 
 function App() {
-	axios.defaults.baseURL = "https://crowdvistaback.vercel.app/" || "http://127.0.0.1:5000";
+	axios.defaults.baseURL =
+		"https://crowdvistaback.vercel.app/" || "http://127.0.0.1:5000";
 	// axios.defaults.baseURL = "http://127.0.0.1:5000";
 	axios.defaults.withCredentials = true;
 	const dispatch = useDispatch();
@@ -122,6 +124,8 @@ function App() {
 								path="/chat"
 								element={user ? <Chat /> : <Navigate to="/authenticate" />}
 							/>
+
+							<Route path="/banner" element={<Banner />} />
 
 							{/* Catch-all route for other pages */}
 							<Route

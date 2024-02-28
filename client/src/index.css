@@ -72,7 +72,25 @@
 	}
 
 	.navigationArrows {
-		@apply transition-all duration-500 ease-linear bg-black/75 hover:blueGrad p-3  rounded-full text-white opacity-50 hover:opacity-100 z-40;
+		@apply transition-all duration-500 ease-linear bg-black/75 hover:blueGrad p-3  rounded-full text-white opacity-50 hover:opacity-100 z-20;
+	}
+
+	.visible,
+	.next,
+	.previous {
+		@apply transition-all duration-1000 ease-in-out;
+	}
+
+	.visible {
+		@apply w-full block z-10 opacity-100 translate-x-0;
+	}
+
+	.next {
+		@apply w-0 opacity-0 translate-x-full;
+	}
+
+	.previous {
+		@apply w-0 opacity-0 -translate-x-full;
 	}
 }
 

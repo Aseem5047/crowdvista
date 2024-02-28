@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import ShareDialog from "../shared/ShareDialog";
 import { leftArrow, rightArrow } from "../../constants";
 import { fadeIn, zoomIn } from "../../utils/motion";
+import Slider from "../shared/Slider";
 
 const Post = ({
 	project,
@@ -23,8 +24,6 @@ const Post = ({
 	const [saved, setSaved] = useState(false);
 
 	const [loading, setLoading] = useState(false);
-	const [postImage, setPostImage] = useState(0);
-	const lastIndex = project?.photos.length - 1;
 
 	let LikedBy = [];
 	let LikedByUserAvatar = [];
@@ -38,12 +37,6 @@ const Post = ({
 			avatar?.split(": ")[0] ? avatar.split(": ")[0] : avatar?.split(": ")[0]
 		)
 	);
-
-	useMemo(() => {
-		postImage && postImage < 0
-			? setPostImage(lastIndex)
-			: postImage > lastIndex && setPostImage(0);
-	}, [postImage]);
 
 	const handleLike = async () => {
 		if (user) {
@@ -68,49 +61,25 @@ const Post = ({
 		}
 	};
 
-	const handleImageSlide = (slide) => {
-		if (slide === "previous") {
-			setPostImage((prev) => prev - 1);
-		} else if (slide === "next") {
-			setPostImage((next) => next + 1);
-		}
-	};
-
 	return (
 		<div className="mt-2">
-			<div key={project?._id} className="px-4 flex items-center relative">
-				{/* left arrow */}
-				<button
-					className="absolute left-10 navigationArrows"
-					onClick={() => handleImageSlide("previous")}
-				>
-					{leftArrow}
-				</button>
-				{project.photos && (
-					<Link
-						to={`/projects/${project?._id}`}
-						className={`flex items-center`}
-					>
-						<img
-							className=" object-cover w-4/5 m-auto md:w-full md:h-full aspect-square md:aspect-video 2xl:aspect-square rounded-xl"
-							src={
-								(project?.photos?.[postImage]?.includes(
-									"https://storage.googleapis.com"
-								) &&
-									project?.photos?.[postImage]) ||
-								`${baseUrl}/uploads/${project?.photos?.[0]}`
-							}
-							alt=""
-						/>
-					</Link>
-				)}
-				{/* right arrow */}
-				<button
-					className="absolute right-10 navigationArrows"
-					onClick={() => handleImageSlide("next")}
-				>
-					{rightArrow}
-				</button>
+			<div key={project?._id} className="px-4 flex items-center relative ">
+				{/* <Link to={`/projects/${project?._id}`} className={`flex items-center`}>
+					<img
+						className=" object-cover w-full m-auto aspect-square sm:aspect-video 2xl:aspect-square rounded-xl"
+						src={
+							(project?.photos?.[0]?.includes(
+								"https://storage.googleapis.com"
+							) &&
+								project?.photos?.[0]) ||
+							`${baseUrl}/uploads/${project?.photos?.[0]}`
+						}
+						alt=""
+					/>
+				</Link> */}
+
+				{/* slider */}
+				<Slider images={project?.photos} link={`/projects/${project?._id}`} />
 			</div>
 
 			<div className="flex items-center justify-between px-4 mt-4">
