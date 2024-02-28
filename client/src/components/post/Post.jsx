@@ -1,8 +1,10 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import ShareDialog from "../shared/ShareDialog";
+import { leftArrow, rightArrow } from "../../constants";
+import { fadeIn, zoomIn } from "../../utils/motion";
 
 const Post = ({
 	project,
@@ -21,6 +23,8 @@ const Post = ({
 	const [saved, setSaved] = useState(false);
 
 	const [loading, setLoading] = useState(false);
+	const [postImage, setPostImage] = useState(0);
+	const lastIndex = project?.photos.length - 1;
 
 	let LikedBy = [];
 	let LikedByUserAvatar = [];
@@ -34,6 +38,12 @@ const Post = ({
 			avatar?.split(": ")[0] ? avatar.split(": ")[0] : avatar?.split(": ")[0]
 		)
 	);
+
+	useMemo(() => {
+		postImage && postImage < 0
+			? setPostImage(lastIndex)
+			: postImage > lastIndex && setPostImage(0);
+	}, [postImage]);
 
 	const handleLike = async () => {
 		if (user) {
@@ -58,51 +68,50 @@ const Post = ({
 		}
 	};
 
-	// const handleShare = async (title, text, url, imageUrls) => {
-	// 	try {
-	// 		const files = await Promise.all(
-	// 			imageUrls.map(async (imageUrl) => {
-	// 				const response = await fetch(imageUrl);
-	// 				const blob = await response.blob();
-	// 				return new File([blob], "image.png", { type: "image/png" });
-	// 			})
-	// 		);
-
-	// 		await navigator.share({
-	// 			title,
-	// 			text,
-	// 			url,
-	// 			files,
-	// 		});
-	// 		console.log("Successfully shared");
-	// 	} catch (error) {
-	// 		console.error("Error sharing:", error);
-	// 	}
-	// };
-
-	// console.log(project);
+	const handleImageSlide = (slide) => {
+		if (slide === "previous") {
+			setPostImage((prev) => prev - 1);
+		} else if (slide === "next") {
+			setPostImage((next) => next + 1);
+		}
+	};
 
 	return (
 		<div className="mt-2">
-			<Link
-				to={`/projects/${project?._id}`}
-				key={project?._id}
-				className="px-4 flex"
-			>
+			<div key={project?._id} className="px-4 flex items-center relative">
+				{/* left arrow */}
+				<button
+					className="absolute left-10 navigationArrows"
+					onClick={() => handleImageSlide("previous")}
+				>
+					{leftArrow}
+				</button>
 				{project.photos && (
-					<img
-						className=" object-cover w-4/5 m-auto md:w-full md:h-full aspect-square md:aspect-video 2xl:aspect-square rounded-xl"
-						src={
-							(project?.photos?.[0]?.includes(
-								"https://storage.googleapis.com"
-							) &&
-								project?.photos?.[0]) ||
-							`${baseUrl}/uploads/${project?.photos?.[0]}`
-						}
-						alt=""
-					/>
+					<Link
+						to={`/projects/${project?._id}`}
+						className={`flex items-center`}
+					>
+						<img
+							className=" object-cover w-4/5 m-auto md:w-full md:h-full aspect-square md:aspect-video 2xl:aspect-square rounded-xl"
+							src={
+								(project?.photos?.[postImage]?.includes(
+									"https://storage.googleapis.com"
+								) &&
+									project?.photos?.[postImage]) ||
+								`${baseUrl}/uploads/${project?.photos?.[0]}`
+							}
+							alt=""
+						/>
+					</Link>
 				)}
-			</Link>
+				{/* right arrow */}
+				<button
+					className="absolute right-10 navigationArrows"
+					onClick={() => handleImageSlide("next")}
+				>
+					{rightArrow}
+				</button>
+			</div>
 
 			<div className="flex items-center justify-between px-4 mt-4">
 				<div className="flex items-center gap-4">

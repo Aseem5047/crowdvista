@@ -18,7 +18,7 @@ const Uploader = ({
 		}
 		axios
 			.post("/upload", data, {
-				header: { "Content-Type": "multipart/form-data" },
+				headers: { "Content-Type": "multipart/form-data" },
 			})
 			.then((response) => {
 				const { data: fileNames } = response;
@@ -90,13 +90,13 @@ const Uploader = ({
 				</button>
 			</div>
 			{/* Photo Gallery */}
-			<div className="my-4 mt-2 gap-2 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mb-10">
+			<div className="my-4 mt-2 gap-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 mb-10">
 				{/* if there are previously added images then show them first */}
 				{addedPhotos.length > 0 &&
 					addedPhotos.map((link) => (
 						<div key={link} className="h-40 flex relative">
 							<img
-								className="rounded-xl w-52 object-cover"
+								className="rounded-xl min-w-52 w-full object-cover"
 								src={
 									link.includes("https://storage.googleapis.com")
 										? `${link}`
@@ -107,7 +107,7 @@ const Uploader = ({
 
 							<button
 								onClick={(event) => removePhoto(event, link)}
-								className="absolute bottom-1 right-1 bg-black bg-opacity-50 px-3 py-2 rounded-2xl text-white cursor-pointer hover:text-primary"
+								className="absolute bottom-2 right-2 bg-black bg-opacity-50 px-3 py-2 rounded-2xl text-white cursor-pointer hover:text-primary"
 							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +126,7 @@ const Uploader = ({
 							</button>
 							<button
 								onClick={(event) => selectAsMainPhoto(event, link)}
-								className="absolute bottom-1 left-1 bg-black bg-opacity-50 px-3 py-2 rounded-2xl text-white cursor-pointer hover:text-primary"
+								className="absolute bottom-2 left-2 bg-black bg-opacity-50 px-3 py-2 rounded-2xl text-white cursor-pointer hover:text-primary"
 							>
 								{link !== addedPhotos[0] ? (
 									<svg
@@ -160,7 +160,7 @@ const Uploader = ({
 							</button>
 						</div>
 					))}
-				<label className="border border-gray-300 flex justify-center items-center gap-2 p-10 font-medium rounded-xl h-40 hover:bg-gray-300 cursor-pointer min-w-[15rem]">
+				<label className="border border-gray-300 flex justify-center items-center gap-2 p-10 font-medium rounded-xl min-h-[10rem] h-full hover:bg-gray-300 cursor-pointer w-full">
 					<input
 						type="file"
 						multiple

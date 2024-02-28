@@ -211,7 +211,7 @@ const HomePage = () => {
 													: `/users/${randomImage}`
 											}
 											alt="User"
-											className="h-12 w-12 rounded-full object-cover hover:scale-125"
+											className="h-12 w-12 rounded-full object-cover transition-all duration-500 hover:scale-110"
 										/>
 										<div className="flex flex-col items-start justify-center">
 											<span className="hoverEffectText">

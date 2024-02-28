@@ -66,7 +66,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 				/>
 				<Cursor cursorColor="#F7AB0A" />
 			</h1>
-			<div className="grid grid-cols-1 md:grid-cols-2 w-full lg:w-fit gap-7 items-start justify-center px-10 md:px-4">
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:w-fit gap-7 items-start justify-center px-10 md:px-4">
 				<div className="flex flex-col justify-center items-start w-full gap-4">
 					<div className="flex gap-4 justify-center items-start">
 						<div className="flex flex-col justify-center items-start">
@@ -143,11 +143,11 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 				</div>
 
 				{/* other details */}
-				<div className="flex flex-1 flex-col gap-4 w-full h-full items-start justify-start">
+				<div className="flex flex-1 flex-col gap-4 w-full h-full items-center justify-start">
 					<div className="flex flex-col items-start justify-center gap-7 w-full">
 						<div className="flex flex-col gap-2 justify-start items-start w-full">
 							<div className="flex flex-col justify-center w-full">
-								<span className="font-medium text-xl">Details</span>
+								<span className="font-medium text-2xl">Details</span>
 								<span className="text-base w-full lg:max-w-sm overflow-y-scroll no-scrollbar max-h-32 py-2">
 									{userProfile?.about}
 								</span>
@@ -217,7 +217,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 						</div>
 					</div>
 
-					<div className="flex items-center gap-4">
+					<div className="flex flex-wrap items-center gap-4">
 						<Link
 							to={`/user/profile/${id}/edit`}
 							className=" blueGrad button h-fit p-3 m-0 hover:opacity:80 cursor-pointer flex gap-2 items-center"
@@ -236,7 +236,9 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 									d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
 								/>
 							</svg>
-							<span className="text-sm md:text-base flex-1">Edit Profile</span>
+							<span className="text-sm sm:text-xs md:text-base flex-1">
+								Edit Profile
+							</span>
 						</Link>
 
 						<Link
@@ -257,7 +259,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 									d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
 								/>
 							</svg>
-							<span className="block text-sm md:text-base flex-1">
+							<span className="block text-sm sm:text-xs md:text-base flex-1">
 								Funded Projects
 							</span>
 						</Link>
@@ -265,7 +267,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 				</div>
 			</div>
 
-			<div className="flex justify-center items-center w-full lg:p-8 relative h-full flex-col grow lg:mb-4">
+			<div className="flex justify-center items-center w-full lg:p-8 relative h-full flex-col grow lg:my-4">
 				<img
 					src={
 						user && user.coverPicture

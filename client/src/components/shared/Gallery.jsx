@@ -67,7 +67,7 @@ const Gallery = ({
 	const handleCheckout = async () => {
 		const stripe = await getStripe();
 		try {
-			const value = parseInt(addedFunds)
+			const value = parseInt(addedFunds);
 			const response = await axios.post("/payment/checkout", [
 				{
 					title: project.title,
@@ -264,7 +264,7 @@ const Gallery = ({
 					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 pb-4 md:pb-0 gap-8 md:gap-0">
 						<div className="flex flex-col items-start justify-start md:px-8 py-2 w-full h-full mt-0 md:mt-4 gap-4 relative order-2 md:order-1">
-							<span class="text-2xl md:text-4xl font-medium text-primary">
+							<span className="text-2xl md:text-4xl font-medium text-primary">
 								Users Thoughts
 							</span>
 							<CommentSection

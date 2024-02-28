@@ -42,7 +42,7 @@ const ProjectForm = ({
 			<>
 				<form onSubmit={addNewProject}>
 					{/* Heading */}
-					{preInput("Title", "Add a short Heading for you place")}
+					{preInput("Title", "Add a short Heading for your Project")}
 
 					<input
 						onChange={handleChange}
@@ -106,7 +106,7 @@ const ProjectForm = ({
 						name="extraInfo"
 						value={data.extraInfo}
 						className="input my-4 mb-10 min-h-[4rem]"
-						placeholder="Describe the Place Briefly"
+						placeholder="Describe the Project Briefly"
 					/>
 
 					{/* Created At */}
