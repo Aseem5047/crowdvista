@@ -15,7 +15,7 @@ const Category = ({ selected, onChange, finalData }) => {
 		}
 	};
 
-	// 	Art
+	// Art
 	// Tech
 	// Music
 	// Film
@@ -42,7 +42,9 @@ const Category = ({ selected, onChange, finalData }) => {
 							onChange={handleCheckedItem}
 						/>
 						{tag.icon}
-						<span className="text-base lg:text-lg">{tag.label}</span>{" "}
+						<span className="text-base lg:text-lg text-ellipsis overflow-hidden whitespace-nowrap">
+							{tag.label}
+						</span>{" "}
 					</label>
 				))}
 			</div>

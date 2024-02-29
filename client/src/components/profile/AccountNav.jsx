@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 const AccountNav = ({ subpage, id }) => {
 	return (
 		<>
-			<div className="flex w-full items-center gap-8 justify-center flex-wrap">
+			<div className="flex w-full items-center gap-8 justify-start md:justify-center overflow-scroll md:overflow-hidden no-scrollbar px-4">
 				<Link
 					to={`/user/profile/${id}`}
 					className={`${
 						subpage === "profile" || subpage === undefined
 							? "bg-primary text-white hover:scale-110"
 							: "bg-gray-100 hover:bg-primary hover:text-white"
-					} hidden md:flex py-2 px-6  rounded-2xl  font-medium  gap-2 items-cecnter justi-center`}
+					} flex py-3 px-6  rounded-xl  font-medium  gap-2 items-cecnter justify-center whitespace-nowrap`}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -35,8 +35,7 @@ const AccountNav = ({ subpage, id }) => {
 						subpage === "purchases"
 							? "bg-primary text-white hover:scale-110"
 							: "bg-gray-100 hover:bg-primary hover:text-white"
-					} py-2 px-6 rounded-2xl 
-                font-medium flex gap-2 items-cecnter justify-center`}
+					} flex py-3 px-6  rounded-xl  font-medium  gap-2 items-cecnter justify-center whitespace-nowrap`}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -60,8 +59,7 @@ const AccountNav = ({ subpage, id }) => {
 						subpage === "projects"
 							? "bg-primary text-white hover:scale-110"
 							: "bg-gray-100 hover:bg-primary hover:text-white"
-					} py-2 px-6 rounded-2xl  
-                font-medium flex gap-2 items-cecnter justify-center`}
+					} flex py-3 px-6  rounded-xl  font-medium  gap-2 items-cecnter justify-center whitespace-nowrap`}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

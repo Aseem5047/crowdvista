@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import ShareDialog from "../shared/ShareDialog";
-import { leftArrow, rightArrow } from "../../constants";
-import { fadeIn, zoomIn } from "../../utils/motion";
+
 import Slider from "../shared/Slider";
+import { one, two, three, four, five } from "../../assets";
 
 const Post = ({
 	project,
@@ -16,7 +16,7 @@ const Post = ({
 	user,
 }) => {
 	const [expand, setExpand] = useState(false);
-
+	const images = [one, two, three, four, five];
 	const [liked, setLiked] = useState(
 		project?.likes.includes(user?._id) ? true : false
 	);

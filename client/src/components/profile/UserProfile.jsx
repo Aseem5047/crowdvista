@@ -217,7 +217,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 						</div>
 					</div>
 
-					<div className="flex flex-wrap items-center gap-4">
+					<div className="flex items-center gap-4">
 						<Link
 							to={`/user/profile/${id}/edit`}
 							className=" blueGrad button h-fit p-3 m-0 hover:opacity:80 cursor-pointer flex gap-2 items-center"
@@ -236,7 +236,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 									d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
 								/>
 							</svg>
-							<span className="text-sm sm:text-xs md:text-base flex-1">
+							<span className="text-sm sm:text-xs md:text-base flex-1 whitespace-nowrap">
 								Edit Profile
 							</span>
 						</Link>
@@ -259,7 +259,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 									d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
 								/>
 							</svg>
-							<span className="block text-sm sm:text-xs md:text-base flex-1">
+							<span className="block text-sm sm:text-xs md:text-base flex-1 whitespace-nowrap">
 								Funded Projects
 							</span>
 						</Link>
@@ -267,7 +267,7 @@ const UserProfile = ({ baseUrl, userProfile }) => {
 				</div>
 			</div>
 
-			<div className="flex justify-center items-center w-full lg:p-8 relative h-full flex-col grow lg:my-4">
+			<div className="flex justify-center items-center w-full md:w-3/4 lg:w-full lg:p-8 relative h-full flex-col grow md:my-4">
 				<img
 					src={
 						user && user.coverPicture
