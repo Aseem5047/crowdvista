@@ -44,7 +44,7 @@ const HomePage = () => {
 					? toast.error("Post Something or Follow others")
 					: console.log("Error Fetching Projects")
 			);
-	}, [user, followingStatusChanged]);
+	}, [user?._id, followingStatusChanged]);
 
 	const getUserField = async (userId) => {
 		try {
@@ -242,7 +242,7 @@ const HomePage = () => {
 									</svg>
 								</div>
 
-								<>
+								{project.photos && (
 									<Post
 										project={project}
 										owner={owners[project.owner]}
@@ -251,7 +251,7 @@ const HomePage = () => {
 										dateFormatter={dateFormatter}
 										user={user}
 									/>
-								</>
+								)}
 							</div>
 						))}
 				</div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import ShareDialog from "../shared/ShareDialog";
@@ -23,6 +23,7 @@ const Post = ({
 	const [likes, setLikes] = useState(project.likes.length);
 	const [saved, setSaved] = useState(false);
 
+	const [loadingpost, setLoadingPost] = useState(false);
 	const [loading, setLoading] = useState(false);
 
 	let LikedBy = [];
@@ -61,25 +62,24 @@ const Post = ({
 		}
 	};
 
-	return (
-		<div className="mt-2">
-			<div key={project?._id} className="px-4 flex items-center relative ">
-				{/* <Link to={`/projects/${project?._id}`} className={`flex items-center`}>
-					<img
-						className=" object-cover w-full m-auto aspect-square sm:aspect-video 2xl:aspect-square rounded-xl"
-						src={
-							(project?.photos?.[0]?.includes(
-								"https://storage.googleapis.com"
-							) &&
-								project?.photos?.[0]) ||
-							`${baseUrl}/uploads/${project?.photos?.[0]}`
-						}
-						alt=""
-					/>
-				</Link> */}
+	useEffect(() => {
+		setLoadingPost(true);
+		setTimeout(() => {
+			setLoadingPost(false);
+		}, 1000);
+	}, [project.photos]);
 
+	return (
+		<div className="mt-2 w-full">
+			<div key={project?._id} className="px-4 flex items-center relative ">
 				{/* slider */}
-				<Slider images={project?.photos} link={`/projects/${project?._id}`} />
+				{!loadingpost ? (
+					<Slider images={project.photos} link={`/projects/${project?._id}`} />
+				) : (
+					<div className="grid grid-cols-1 items-center justify-center w-full flex-1 m-auto">
+						<div className="animate-pulse w-full aspect-square sm:aspect-video 2xl:aspect-square rounded-xl m-auto bg-gray-300" />
+					</div>
+				)}
 			</div>
 
 			<div className="flex items-center justify-between px-4 mt-4">

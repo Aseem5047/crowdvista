@@ -119,7 +119,12 @@ const updateFunds = async (req, res) => {
 
 
 const getAllProjects = async (req, res) => {
-    res.status(200).json(await ProjectModel.find())
+    try {
+        const posts = await PostModel.find();
+        res.status(200).json(posts);
+    } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 }
 
 const getUserProjects = async (req, res) => {
