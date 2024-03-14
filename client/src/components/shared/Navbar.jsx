@@ -120,6 +120,7 @@ const Navbar = () => {
 		setPosts([]);
 		setSearchedUsers([]);
 		setTags([]);
+		setSearchText("");
 	};
 
 	const handleSearch = (event) => {

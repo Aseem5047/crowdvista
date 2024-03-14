@@ -39,7 +39,7 @@ const Search = ({
 				} flex-grow max-w-[25rem] mx-10 items-center justify-center`}
 			>
 				{toggleSearch && user && (
-					<div className="fixed top-[5.25rem] bg-white w-[85%] lg:w-1/2 left-1/2 transform -translate-x-[50%] self-center z-40 flex flex-col p-2 rounded-xl max-h-[38rem] overflow-y-scroll no-scrollbar">
+					<div className="fixed top-[5.25rem] bg-white w-[85%] lg:w-1/2 left-1/2 transform -translate-x-[50%] self-center z-20 flex flex-col p-2 rounded-xl max-h-[38rem] overflow-y-scroll no-scrollbar">
 						{/* Category */}
 						<div className="flex gap-2 items-center justify-start my-2 mx-4 flex-wrap w-[70%] text-black">
 							{category.map((tag, index) => (
@@ -127,7 +127,8 @@ const Search = ({
 									{searchedUsers.map((searchedUser, index) => (
 										<div
 											className="flex items-center justify-start gap-2 w-full px-4 mb-2 border-b pb-4"
-											key={index + user.id}
+											key={index + searchedUser.id}
+											onClick={toggleSearchMenu}
 										>
 											<Link
 												to={`/user/profile/${searchedUser?._id}`}
@@ -173,39 +174,41 @@ const Search = ({
 											Projects Found
 										</span>
 										{posts.map((post) => (
-											<>
-												<div className="flex items-center justify-start gap-2 w-full px-4 mb-2 border-b pb-4">
-													<Link
-														to={`/projects/${post?._id}`}
-														className="hover:scale-110"
-													>
-														<img
-															src={
-																post
-																	? post.photos[0].includes(
-																			"https://storage.googleapis.com"
-																	  )
-																		? `${post.photos[0]}`
-																		: `${baseUrl}/uploads/${post.photos[0]}`
-																	: "https://source.unsplash.com/1600x900/?nature,technology,cartoon"
-															}
-															alt="profile"
-															className="w-16 h-16 rounded-xl object-cover"
-														/>
-													</Link>
-													<Link
-														to={`/projects/${post?._id}`}
-														className="flex flex-col flex-wrap text-black"
-													>
-														<span className="text-base hoverEffectText text-ellipsis whitespace-nowrap overflow-hidden  w-fit max-w-[9rem]">
-															{post?.title}
-														</span>
-														<span className="text-sm bold text-ellipsis whitespace-nowrap w-[22rem] overflow-hidden">
-															{post?.description}
-														</span>
-													</Link>
-												</div>
-											</>
+											<div
+												className="flex items-center justify-start gap-2 w-full px-4 mb-2 border-b pb-4"
+												key={post?.id}
+												onClick={toggleSearchMenu}
+											>
+												<Link
+													to={`/projects/${post?._id}`}
+													className="hover:scale-110"
+												>
+													<img
+														src={
+															post
+																? post.photos[0].includes(
+																		"https://storage.googleapis.com"
+																  )
+																	? `${post.photos[0]}`
+																	: `${baseUrl}/uploads/${post.photos[0]}`
+																: "https://source.unsplash.com/1600x900/?nature,technology,cartoon"
+														}
+														alt="profile"
+														className="w-16 h-16 rounded-xl object-cover"
+													/>
+												</Link>
+												<Link
+													to={`/projects/${post?._id}`}
+													className="flex flex-col flex-wrap text-black"
+												>
+													<span className="text-base hoverEffectText text-ellipsis whitespace-nowrap overflow-hidden  w-fit max-w-[9rem]">
+														{post?.title}
+													</span>
+													<span className="text-sm bold text-ellipsis whitespace-nowrap w-[22rem] overflow-hidden">
+														{post?.description}
+													</span>
+												</Link>
+											</div>
 										))}
 									</div>
 								</div>
@@ -214,7 +217,7 @@ const Search = ({
 					</div>
 				)}
 
-				<div className="flex justify-center items-center gap-4 border border-gray-300 rounded-full px-8 py-3">
+				<div className="flex justify-center items-center gap-4 border border-gray-300 rounded-full px-8 py-3 z-30">
 					<div to="" className="navbarText " onClick={togglePeopleMenu}>
 						People
 					</div>

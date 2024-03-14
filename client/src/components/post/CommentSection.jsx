@@ -36,7 +36,7 @@ const CommentSection = ({ owner, project, currentUser }) => {
 				userId: currentUser._id, // You may want to include the user ID separately
 			});
 
-			// Assuming your backend returns the updated comments, update state with the new comments
+			// Assuming backend returns the updated comments, update state with the new comments
 			setComments(response.data.comments); // Update comments state with the new comments
 
 			setComment(""); // Clear the comment input field

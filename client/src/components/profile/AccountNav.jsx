@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const AccountNav = ({ subpage, id }) => {
 	return (
 		<>
-			<div className="flex w-full items-center gap-8 justify-start md:justify-center overflow-scroll md:overflow-hidden no-scrollbar px-4">
+			<div className="flex w-full items-center gap-8 justify-center flex-wrap px-4">
 				<Link
 					to={`/user/profile/${id}`}
 					className={`${
