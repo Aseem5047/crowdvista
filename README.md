@@ -1,4 +1,4 @@
-# crowdvista
+# CrowdVista https://crowdvista.vercel.app
 
 CrowdVista is a dynamic MERN stack application, built on React Vite, that serves as a feature-rich crowdfunding platform, enabling users to seamlessly create and edit profiles and projects, fund projects through integrated Stripe payment gateway, explore and search for people and projects based on tags and usernames, while offering a plethora of additional functionalities for an enhanced user experience.
 
